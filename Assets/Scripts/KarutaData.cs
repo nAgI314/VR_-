@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KarutaData : MonoBehaviour
 {
-    public Karuta karutaData;
+    public Karuta2 karutaData;
     // Start is called before the first frame update
     void Start()
     {

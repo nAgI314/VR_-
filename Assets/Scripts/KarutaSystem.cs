@@ -1,4 +1,4 @@
-
+using System.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -83,7 +83,32 @@ public class KarutaSystem : MonoBehaviour
                 }
 
         }
+        for (int i = _textureList.Count - 1; i > 0; i--)
+        {
+            var j = Random.Range(0, i + 1);
+            var temp = _textureList[i];
+            _textureList[i] = _textureList[j];
+            _textureList[j] = temp;
         }
+        var waitTask = Task.Delay(5000);
+        waitTask.Wait();
+
+        int Correct;
+        for (int maisuu = 0; maisuu <= 43; maisuu++)
+        {
+          
+            System.Console.WriteLine(_textureList[maisuu]);
+            
+
+
+
+            var waitTask2 = Task.Delay(10000);
+            waitTask2.Wait();
+        }
+
+
+
+    }
 
         // Update is called once per frame
         void Update()
@@ -94,6 +119,7 @@ public class KarutaSystem : MonoBehaviour
             return _textureList[hudaID];
 
         }
+
     }
 
         
