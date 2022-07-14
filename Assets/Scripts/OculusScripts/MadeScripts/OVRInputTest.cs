@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 
 public class OVRInputTest : MonoBehaviour
 {
+    public UnityEvent<GameObject> touchEvent = new UnityEvent<GameObject>();
+
     public KarutaSystem KarutaSystem;
     public GameSystem GameSystem;
 
@@ -34,19 +38,18 @@ public class OVRInputTest : MonoBehaviour
             isTriggerDown = false;
         }
     }
-    
 
-    
+
+
 
     /** 別のCollider(other)に触れている間実行 **/
+   
     void OnTriggerStay(Collider other)
     {
         int Player1Point;
         Player1Point = GameSystem.Player1Point;
         Debug.Log(Player1Point);
-        Texture Correct;
-        Correct = KarutaSystem.Correct;
-        Debug.Log(Correct);
+      
 
         // コントローラーのTriggerが押されており、対象がプレイヤー自身でない
         if (isTriggerDown && other.tag != "Player")
@@ -55,15 +58,10 @@ public class OVRInputTest : MonoBehaviour
             //ここから自分で打ったやつ（点数いれたり）
 
 
-
-            if (other.gameObject==Correct) 
-            {
-
-                Player1Point++ ; 
-            }
+            touchEvent.Invoke(other.gameObject);
             //ここまで自分で打ったやつ
             // コントローラーとつかんだオブジェクトのtransformを同期
-            
+
             other.gameObject.transform.rotation = transform.rotation;
         }
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 using System.Linq;
 
 
-public class KarutaSystem : MonoBehaviour
+public class KarutaSystem 
 {
    
         
@@ -15,42 +15,45 @@ public class KarutaSystem : MonoBehaviour
     //↑数値を取り出す用
 
     public Texture Correct;
-   
-    [SerializeField] KarutaHuda _KarutaHudaPrehub = null;
-        public static KarutaSystem instance = null;
-        // Start is called before the first frame update
-        void Start()
+
+    KarutaHuda _KarutaHudaPrehub = null;
+
+    public static KarutaSystem instance = null;
+    public KarutaSystem(KarutaHuda karutaHuda) {
+        _KarutaHudaPrehub = karutaHuda;
+    }
+    // Start is called before the first frame update
+        public void Initialize()
         {
             instance = this;
             for (int i = 0; i < 44; i++)
             { _textureList.Add(Resources.Load<Texture>(string.Format("Texture/Karuta/{0}", i)));
             _numberList.Add(i);
-            }
+            KarutaHuda newObj = GameObject.Instantiate<KarutaHuda>(_KarutaHudaPrehub);
+            newObj.SetHudaID(i);
+            _KarutaList.Add(newObj);
+        }
         List<Texture> _textureListCopy = new List<Texture>(_textureList);
         //↑は正解の札の参照用
         for (int i = _textureList.Count - 1; i > 0; i--)
         {
             var j = Random.Range(0, i + 1);
-            var temp = _textureList[i]; 
-            _textureList[i] = _textureList[j]; 
-            _textureList[j] = temp; 
+            var temp = _KarutaList[i]; 
+            _KarutaList[i] = _KarutaList[j]; 
+            _KarutaList[j] = temp; 
         }
         //↑シャッフル
       
-        
-           
-
-
-        
+       
         int x = 0;
            float z = 0f;
 
             for (int maisuu = 0; maisuu <= 43; maisuu++)
             {
-            KarutaHuda newObj = GameObject.Instantiate<KarutaHuda>(_KarutaHudaPrehub);
-            newObj.transform.localPosition = new Vector3(x, 0f, z);
-            newObj.SetHudaID(maisuu);
-            _KarutaList.Add(newObj);
+            _KarutaList[maisuu].transform.localPosition = new Vector3(x, 0f, z);
+            _KarutaList[maisuu].name = maisuu.ToString();
+
+            
 
             x += 1;
                 if (maisuu == 7)
@@ -86,7 +89,7 @@ public class KarutaSystem : MonoBehaviour
 
                 if (22 <= maisuu)
                 {
-                newObj.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                _KarutaList[maisuu].transform.localRotation = Quaternion.Euler(0, 0, 0);
                 }
 
         }
@@ -97,14 +100,21 @@ public class KarutaSystem : MonoBehaviour
             _textureList[i] = _textureList[j];
             _textureList[j] = temp;
         }
-       
-        
-       　
+        for (int i =_numberList.Count - 1; i > 0; i--)
+        {
+            var j = Random.Range(0, i + 1);
+            var temp = _numberList[i];
+            _numberList[i] = _numberList[j];
+            _numberList[j] = temp;
+        }
+
+
+
         for (int maisuu = 0; maisuu <= 43; maisuu++)
         {
             Texture Correct = _textureListCopy[_numberList[maisuu]];
-            Debug.Log(maisuu);
-           
+            // Debug.Log(_numberList[maisuu]);
+            Debug.Log(_KarutaList[_numberList[maisuu]]);
             //読み札を読むやつをいれるとこ(違うスクリプトがいいらしい)
 
 
@@ -124,7 +134,14 @@ public class KarutaSystem : MonoBehaviour
             return _textureList[hudaID];
 
         }
-
+    public List<KarutaHuda> GetKarutaList()
+    {
+        return _KarutaList;
+    }
+    public List<int> GetnumberList()
+    {
+        return _numberList;
+    }
     }
 
         
