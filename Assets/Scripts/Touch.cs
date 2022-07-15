@@ -6,7 +6,8 @@ using UnityEngine.Events;
 
 public class Touch : MonoBehaviour
 {
-    [Serializable] private class TouchEvent : UnityEvent<Collider> { }
+    OVRInputTest eventController;
+    [Serializable] private class TouchEvent : UnityEvent<Collider,bool> { }
     [SerializeField]
     private TouchEvent touchEvent = new TouchEvent();
     // Start is called before the first frame update
@@ -23,8 +24,11 @@ public class Touch : MonoBehaviour
   
     private void OnTriggerEnter(Collider other)
     {
-
-        touchEvent.Invoke(other);
-        Debug.Log("test");
+        if ( other.tag != "Player")
+        {
+            touchEvent.Invoke(other,true);
+            
+        }
+       
     }
 }

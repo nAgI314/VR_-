@@ -12,9 +12,11 @@ public class KarutaSystem
         List<Texture> _textureList = new List<Texture>();
         List<KarutaHuda> _KarutaList = new List<KarutaHuda>();
         List<int> _numberList = new List<int>();
-    //↑数値を取り出す用
 
-    public Texture Correct;
+    List<string> _voiceList = new List<string>();
+    //↑数値を取り出す用
+    
+   
 
     KarutaHuda _KarutaHudaPrehub = null;
 
@@ -29,11 +31,14 @@ public class KarutaSystem
             for (int i = 0; i < 44; i++)
             { _textureList.Add(Resources.Load<Texture>(string.Format("Texture/Karuta/{0}", i)));
             _numberList.Add(i);
+            _voiceList.Add(string.Format("Sound/Karuta/{0}", 1));
             KarutaHuda newObj = GameObject.Instantiate<KarutaHuda>(_KarutaHudaPrehub);
             newObj.SetHudaID(i);
+        
             _KarutaList.Add(newObj);
-        }
+            }
         List<Texture> _textureListCopy = new List<Texture>(_textureList);
+       
         //↑は正解の札の参照用
         for (int i = _textureList.Count - 1; i > 0; i--)
         {
@@ -100,6 +105,7 @@ public class KarutaSystem
             _textureList[i] = _textureList[j];
             _textureList[j] = temp;
         }
+
         for (int i =_numberList.Count - 1; i > 0; i--)
         {
             var j = Random.Range(0, i + 1);
@@ -108,20 +114,14 @@ public class KarutaSystem
             _numberList[j] = temp;
         }
 
-
-
         for (int maisuu = 0; maisuu <= 43; maisuu++)
         {
             Texture Correct = _textureListCopy[_numberList[maisuu]];
-            // Debug.Log(_numberList[maisuu]);
+            //Debug.Log(_numberList[maisuu]);
             Debug.Log(_KarutaList[_numberList[maisuu]]);
-            //読み札を読むやつをいれるとこ(違うスクリプトがいいらしい)
-
-
-            
         }
 
-
+     
 
     }
 
@@ -134,10 +134,16 @@ public class KarutaSystem
             return _textureList[hudaID];
 
         }
+    public string GetSound(int hudaID)
+    {
+        return _voiceList[hudaID];
+    }
+
     public List<KarutaHuda> GetKarutaList()
     {
         return _KarutaList;
     }
+   
     public List<int> GetnumberList()
     {
         return _numberList;

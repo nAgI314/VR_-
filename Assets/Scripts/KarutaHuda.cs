@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class KarutaHuda : MonoBehaviour
 {
+
     [SerializeField] Material _material = null;
     Material _myMaterial = null;
     [SerializeField] MeshRenderer _cubeA = null;
     // Start is called before the first frame update
 
-    private int _hudaID = 0;
+    [SerializeField] private int _hudaID = 0;
+    private string soundCheck = null;
     public int hudaID  { get; set; }
     
     void Start()
@@ -28,9 +30,10 @@ public class KarutaHuda : MonoBehaviour
        
         _hudaID = hudaID;
         SetTexture(KarutaSystem.instance.GetTexture(_hudaID));
-        
+        SetSound(KarutaSystem.instance.GetSound(_hudaID)); 
        
     }
+
 
 
     void SetTexture(Texture texture)
@@ -42,5 +45,17 @@ public class KarutaHuda : MonoBehaviour
         }
 
         _myMaterial.mainTexture = texture;
+    }
+    void SetSound(string soundPath)
+    {
+        soundCheck = soundPath;
+
+        
+
+        
+    }
+    public AudioClip Getsound()
+    {
+        return Resources.Load<AudioClip>(soundCheck);
     }
 }

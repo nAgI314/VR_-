@@ -44,7 +44,7 @@ public class OVRInputTest : MonoBehaviour
 
     /** •Ê‚ÌCollider(other)‚ÉG‚ê‚Ä‚¢‚éŠÔÀs **/
    
-    void OnTriggerStay(Collider other)
+    public void OnTriggerStay(Collider other)
     {
         int Player1Point;
         Player1Point = GameSystem.Player1Point;
