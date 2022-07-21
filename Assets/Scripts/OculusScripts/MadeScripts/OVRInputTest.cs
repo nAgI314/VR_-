@@ -1,12 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-
+[Serializable] public class TouchEvent : UnityEvent<Collider, bool> { }
 public class OVRInputTest : MonoBehaviour
 {
-    public UnityEvent<GameObject> touchEvent = new UnityEvent<GameObject>();
+    OVRInputTest eventController;
+    //public UnityEvent<GameObject> touchEvent = new UnityEvent<GameObject>();
+    [SerializeField] private TouchEvent touchEvent = new TouchEvent();
 
     public KarutaSystem KarutaSystem;
     public GameSystem GameSystem;
@@ -20,7 +23,7 @@ public class OVRInputTest : MonoBehaviour
     }
     void Start()
     {
-
+        
         controller = GetComponent<OVRControllerHelper>().m_controller;
     }
 
@@ -52,13 +55,13 @@ public class OVRInputTest : MonoBehaviour
       
 
         // コントローラーのTriggerが押されており、対象がプレイヤー自身でない
-        if (isTriggerDown && other.tag != "Player")
+        if (isTriggerDown==true && other.tag != "Player")
         {
             other.gameObject.transform.position = transform.position;
             //ここから自分で打ったやつ（点数いれたり）
 
-
-            touchEvent.Invoke(other.gameObject);
+            SoundEffectSystem.instance1.MakeSoundTouch();
+            touchEvent.Invoke(other,true);
             //ここまで自分で打ったやつ
             // コントローラーとつかんだオブジェクトのtransformを同期
 

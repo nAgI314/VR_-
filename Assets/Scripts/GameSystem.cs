@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Threading;
 using System.Threading.Tasks;
+using UnityEngine.SceneManagement;
 
 public class GameSystem : MonoBehaviour
 {
@@ -16,9 +17,11 @@ public class GameSystem : MonoBehaviour
     [SerializeField]private AnswerEvent setAnswerEvent = new AnswerEvent();
     CancellationTokenSource cancellationTokenSource;
     KarutaSystem cardController;
-    int _count = 0;
+    public int _count = 0;
     public int Player1Point = 0;
+    public int hudaCount1 = 0;
     public int Player2Point = 0;
+    public int hudaCount2 = 0;
     List<GameObject> _Player1List = new List<GameObject>();
     List<GameObject> _Player2List = new List<GameObject>();
 
@@ -33,28 +36,7 @@ public class GameSystem : MonoBehaviour
         cardController.Initialize();
         SetAnswer();
 
-        if (Player1Point + Player2Point == 44)
-        {
-            if (Player1Point > Player2Point)
-            {
 
-            }
-            else if (Player2Point > Player1Point)
-            {
-
-            }
-            else if (Player1Point == Player2Point)
-            {
-                //Ç©ÇÈÇΩÇÃÇ¬ÇéùÇ¡ÇƒÇ¢ÇΩÇÁ
-                {
-
-                }
-                //Ç‡Ç¡ÇƒÇ¢Ç»Ç©Ç¡ÇΩÇÁ
-                {
-
-                }
-            }
-        }
     }
 
     // Update is called once per frame
@@ -62,8 +44,14 @@ public class GameSystem : MonoBehaviour
     {
 
     }
-    void SetAnswer()
+    async void SetAnswer()
     {
+        await Task.Delay(1000);
+        if (_count == 44)
+        {
+            PlayerPoint();
+        }
+
         cancellationTokenSource = new CancellationTokenSource();
 
         List<KarutaHuda> karutaEhuda = cardController.GetKarutaList();
@@ -80,7 +68,10 @@ public class GameSystem : MonoBehaviour
         Debug.Log(shuffleNumber[_count]);
 
         _count++;
+        
+
         setAnswerEvent.Invoke(cancellationTokenSource.Token);
+
     }
     public void GetPoint(Collider huda,bool player)
     {
@@ -88,15 +79,15 @@ public class GameSystem : MonoBehaviour
         cancellationTokenSource.Dispose();
         if (player == true)
         {
-          
-             Player1Point= Player1Point + PutPoint(huda.gameObject.GetComponent<KarutaHuda>().hudaID); 
-           
+             
+             Player1Point= Player1Point + PutPoint(huda.gameObject.GetComponent<KarutaHuda>().hudaID);
+             hudaCount1++;
         }
         else
         {
 
             Player2Point = Player2Point + PutPoint(huda.gameObject.GetComponent<KarutaHuda>().hudaID);
-          
+            hudaCount2++;
         }
         huda.gameObject.SetActive(false);
         audioSource.Stop();
@@ -116,7 +107,19 @@ public class GameSystem : MonoBehaviour
     }
     public GameObject Getanswer()
     {
-        return cardController.GetKarutaList() [cardController.GetnumberList()[_count]].gameObject;
+        return cardController.GetKarutaList() [cardController.GetnumberList()[_count-1]].gameObject;
+    }
+
+    private void PlayerPoint() 
+    {
+        if (Player1Point > 22)
+        {
+            SceneManager.LoadScene("WinScene");
+        }
+        else
+        {
+            SceneManager.LoadScene("LoseScene");
+        }
     }
 
 }

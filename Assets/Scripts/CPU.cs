@@ -13,6 +13,7 @@ public class CPU : MonoBehaviour
         await Task.Delay(6000, token);
         if (token.IsCancellationRequested == false)
         {
+            SoundEffectSystem.instance1.MakeSoundNoTouch();
             GetHuda();
         }
     }

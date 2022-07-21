@@ -4,12 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
 public class Touch : MonoBehaviour
 {
     OVRInputTest eventController;
-    [Serializable] private class TouchEvent : UnityEvent<Collider,bool> { }
+   
     [SerializeField]
     private TouchEvent touchEvent = new TouchEvent();
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +27,11 @@ public class Touch : MonoBehaviour
   
     private void OnTriggerEnter(Collider other)
     {
+
         if ( other.tag != "Player")
         {
+            //å¯â âπåƒÇ—èoÇ∑
+            SoundEffectSystem.instance1.MakeSoundTouch();
             touchEvent.Invoke(other,true);
             
         }

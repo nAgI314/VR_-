@@ -5,7 +5,7 @@ using UnityEngine;
 using System.Linq;
 
 
-public class KarutaSystem 
+public class KarutaSystem : MonoBehaviour
 {
    
         
@@ -31,7 +31,7 @@ public class KarutaSystem
             for (int i = 0; i < 44; i++)
             { _textureList.Add(Resources.Load<Texture>(string.Format("Texture/Karuta/{0}", i)));
             _numberList.Add(i);
-            _voiceList.Add(string.Format("Sound/Karuta/{0}", 1));
+            _voiceList.Add(string.Format("Sound/Karuta/{0}", i));
             KarutaHuda newObj = GameObject.Instantiate<KarutaHuda>(_KarutaHudaPrehub);
             newObj.SetHudaID(i);
         
@@ -45,12 +45,16 @@ public class KarutaSystem
             var j = Random.Range(0, i + 1);
             var temp = _KarutaList[i]; 
             _KarutaList[i] = _KarutaList[j]; 
-            _KarutaList[j] = temp; 
+            _KarutaList[j] = temp;
+            
+            var voiceTemp = _voiceList[i];
+            _voiceList[i] = _voiceList[j];
+            _voiceList[j] = voiceTemp;
         }
         //Å™ÉVÉÉÉbÉtÉã
       
        
-        int x = 0;
+        float x = 2;
            float z = 0f;
 
             for (int maisuu = 0; maisuu <= 43; maisuu++)
@@ -60,32 +64,32 @@ public class KarutaSystem
 
             
 
-            x += 1;
+            x += 0.1f;
                 if (maisuu == 7)
                 {
-                    x = 0;
-                    z = 76f / 63f;
+                    x = 2f;
+                    z = 76f / 630f;
                 }
                 if (maisuu == 14)
                 {
-                    x = 0;
-                    z = 152f / 63f;
+                    x = 2;
+                    z = 152f / 630f;
                 }
                 else if (maisuu == 21)
                 {
-                    x = 0;
-                    z = 248f / 63f;
+                    x = 2;
+                    z = 248f / 630f;
                 
                 }
                 else if (maisuu == 28)
                 {
-                    x = 0;
-                    z = 324f / 63f;
+                    x = 2;
+                    z = 324f / 630f;
                 }
                 else if (maisuu == 35)
                 {
-                    x = -1;
-                    z = 400f / 63f;
+                    x = 1.9f;
+                    z = 400f / 630f;
                 }
                 else
                 {

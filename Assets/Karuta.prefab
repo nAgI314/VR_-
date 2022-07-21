@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6926522374504392150}
   - component: {fileID: 6926522374504392149}
   - component: {fileID: -8943480234578797708}
+  - component: {fileID: -4324856132516716890}
   m_Layer: 7
   m_Name: Karuta
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 4994523280159494900}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.841, y: 0.01, z: 1.05}
+  m_LocalScale: {x: 0.0841, y: 0.0001, z: 0.105}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4994523280561304009}
@@ -103,6 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _material: {fileID: 2100000, guid: 480dd5ac2fca8b64586ce7ef3452d436, type: 2}
   _cubeA: {fileID: 4994523280561304004}
+  _hudaID: 0
 --- !u!114 &6926522374504392150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +145,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.99999994, y: 1, z: 0.99999994}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-4324856132516716890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4994523280159494900}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7117e294f721934dbfc389188e8bf06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4994523280307501139
 GameObject:
   m_ObjectHideFlags: 0
