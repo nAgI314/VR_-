@@ -7,6 +7,8 @@ using UnityEngine.Events;
 [Serializable] public class TouchEvent : UnityEvent<Collider, bool> { }
 public class OVRInputTest : MonoBehaviour
 {
+    [SerializeField] TMPro.TextMeshPro text;
+    [SerializeField] OVRInput.Controller m_controller;
     OVRInputTest eventController;
     //public UnityEvent<GameObject> touchEvent = new UnityEvent<GameObject>();
     [SerializeField] private TouchEvent touchEvent = new TouchEvent();
@@ -17,6 +19,9 @@ public class OVRInputTest : MonoBehaviour
     private OVRInput.Controller controller;
     private bool isTriggerDown = false;
 
+    bool miss;
+    float timer;
+
     public bool GetIsTriggerDown()
     {
         return isTriggerDown;
@@ -24,22 +29,33 @@ public class OVRInputTest : MonoBehaviour
     void Start()
     {
         
-        controller = GetComponent<OVRControllerHelper>().m_controller;
+        //controller = GetComponent<OVRControllerHelper>().m_controller;
     }
 
     void Update()
     {
-      
-        
+        float value = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger,m_controller);
+
         // 値が0でなければ、コントローラーのTriggerが押されている
-        if (OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, controller) > 0)
+        if (value > 0.5)
         {
             isTriggerDown = true;
+            
         }
         else
         {
             isTriggerDown = false;
+            
         }
+        if (miss == true)
+        {
+            timer += Time.deltaTime;
+            if (timer >= 0.5)
+            {
+                miss = false;
+            }
+        }
+
     }
 
 
@@ -47,25 +63,29 @@ public class OVRInputTest : MonoBehaviour
 
     /** 別のCollider(other)に触れている間実行 **/
    
-    public void OnTriggerStay(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
-        int Player1Point;
-        Player1Point = GameSystem.Player1Point;
-        Debug.Log(Player1Point);
+        
       
 
         // コントローラーのTriggerが押されており、対象がプレイヤー自身でない
-        if (isTriggerDown==true && other.tag != "Player")
+        if (isTriggerDown==true && other.tag != "Player"&&miss==false)
         {
-            other.gameObject.transform.position = transform.position;
+            text.text="tag:"+other.tag;
+            
             //ここから自分で打ったやつ（点数いれたり）
 
-            SoundEffectSystem.instance1.MakeSoundTouch();
+            
             touchEvent.Invoke(other,true);
             //ここまで自分で打ったやつ
             // コントローラーとつかんだオブジェクトのtransformを同期
 
-            other.gameObject.transform.rotation = transform.rotation;
+            
         }
+    }
+    public void Miss()
+    {
+        miss = true;
+        timer = 0;
     }
 }

@@ -62,7 +62,7 @@ public class KarutaSystem : MonoBehaviour
             _KarutaList[maisuu].transform.localPosition = new Vector3(x, 0f, z);
             _KarutaList[maisuu].name = maisuu.ToString();
 
-            
+            _KarutaList[maisuu].Setjin(maisuu);
 
             x += 0.1f;
                 if (maisuu == 7)

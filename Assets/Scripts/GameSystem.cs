@@ -11,9 +11,11 @@ using UnityEngine.SceneManagement;
 public class GameSystem : MonoBehaviour
 {
     [Serializable] private class AnswerEvent : UnityEvent<CancellationToken> { }
+    
     [SerializeField] KarutaHuda _KarutaHudaPrehub = null;
     [SerializeField] AudioSource audioSource = null;
 
+    [SerializeField] private UnityEvent MissEvent = new UnityEvent();
     [SerializeField]private AnswerEvent setAnswerEvent = new AnswerEvent();
     CancellationTokenSource cancellationTokenSource;
     KarutaSystem cardController;
@@ -22,8 +24,10 @@ public class GameSystem : MonoBehaviour
     public int hudaCount1 = 0;
     public int Player2Point = 0;
     public int hudaCount2 = 0;
-    List<GameObject> _Player1List = new List<GameObject>();
-    List<GameObject> _Player2List = new List<GameObject>();
+    Stack<KarutaHuda> _Player1List = new Stack<KarutaHuda>();
+    Stack<KarutaHuda> _Player2List = new Stack<KarutaHuda>();
+
+    bool jin;
 
     private void Awake()
     {
@@ -56,15 +60,20 @@ public class GameSystem : MonoBehaviour
 
         List<KarutaHuda> karutaEhuda = cardController.GetKarutaList();
         List<int> shuffleNumber = cardController.GetnumberList();
+        jin = karutaEhuda[shuffleNumber[_count]].Jin;
+        for (int i = 0; i < karutaEhuda.Count; i++)
+        {
+            karutaEhuda[i].gameObject.GetComponent<BoxCollider>().enabled = karutaEhuda[i].Jin != jin;
+        }
         
-      
         GameObject karuta = karutaEhuda[shuffleNumber[_count]].gameObject;
         audioSource.PlayOneShot( karuta.GetComponent<KarutaHuda>().Getsound());
         
-        karuta.GetComponent<BoxCollider>();
+        
 
         BoxCollider boxCollider = karuta.GetComponent<BoxCollider>();
         boxCollider.enabled = true;
+
         Debug.Log(shuffleNumber[_count]);
 
         _count++;
@@ -75,19 +84,40 @@ public class GameSystem : MonoBehaviour
     }
     public void GetPoint(Collider huda,bool player)
     {
-        cancellationTokenSource.Cancel();
-        cancellationTokenSource.Dispose();
+
+
         if (player == true)
         {
-             
-             Player1Point= Player1Point + PutPoint(huda.gameObject.GetComponent<KarutaHuda>().hudaID);
-             hudaCount1++;
+            if (huda.gameObject.GetComponent<KarutaHuda>().Jin == jin)
+            {
+                SoundEffectSystem.instance1.MakeSoundTouch();
+                cancellationTokenSource.Cancel();
+                cancellationTokenSource.Dispose();
+                Player1Point = Player1Point + PutPoint(huda.gameObject.GetComponent<KarutaHuda>().hudaID);
+                hudaCount1++;
+                _Player1List.Push(huda.gameObject.GetComponent<KarutaHuda>());
+
+            }
+            else
+            {
+                MissEvent.Invoke();
+                SoundEffectSystem.instance1.MakeSoundNoTouch();
+                if (_Player1List.Count > 0)
+                {
+
+                    _Player2List.Push(_Player1List.Pop());
+                    
+                }
+                return;
+            }
         }
         else
         {
-
+            cancellationTokenSource.Cancel();
+            cancellationTokenSource.Dispose();
             Player2Point = Player2Point + PutPoint(huda.gameObject.GetComponent<KarutaHuda>().hudaID);
             hudaCount2++;
+            _Player2List.Push(huda.gameObject.GetComponent<KarutaHuda>());
         }
         huda.gameObject.SetActive(false);
         audioSource.Stop();

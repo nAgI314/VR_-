@@ -11,8 +11,14 @@ public class KarutaHuda : MonoBehaviour
     // Start is called before the first frame update
 
     [SerializeField] private int _hudaID = 0;
+
+    [SerializeField] bool jin;
     private string soundCheck = null;
     public int hudaID  { get; set; }
+    public bool Jin
+    {
+        get { return jin; }
+    }
     
     void Start()
     {
@@ -57,5 +63,16 @@ public class KarutaHuda : MonoBehaviour
     public AudioClip Getsound()
     {
         return Resources.Load<AudioClip>(soundCheck);
+    }
+    public void Setjin(int maisuu)
+    {
+        if (maisuu > 22)
+        {
+            jin = true;
+        }
+        else
+        {
+            jin = false;
+        }
     }
 }
