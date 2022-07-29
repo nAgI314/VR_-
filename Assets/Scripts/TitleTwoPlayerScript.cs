@@ -15,8 +15,9 @@ public class TitleTwoPlayerScript : MonoBehaviour
         audio = GetComponent<AudioSource>();
         audio.Play();
         FadeOut.fadeOut.Fadeout();
+        BotuPhotonScript.botuPhotonScript.Event.AddListener(()=>{ Invoke("LoadTwoPlayerScene", 1f); });
         BotuPhotonScript.botuPhotonScript.Ready();
-        Invoke("LoadTwoPlayerScene", 1f);
+        //Invoke("LoadTwoPlayerScene", 1f);
         //StartCoroutine(Checking (() =>
         // {
 

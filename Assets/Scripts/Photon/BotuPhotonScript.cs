@@ -3,9 +3,11 @@ using System.Collections;
 using Photon.Pun;
 using Photon.Realtime;
 using Oculus.Interaction.Input;
+using UnityEngine.Events;
 
 public class BotuPhotonScript : MonoBehaviourPunCallbacks
 {
+    [SerializeField] public UnityEvent Event=new UnityEvent();
     
     public static BotuPhotonScript botuPhotonScript;
     private void Awake()
@@ -46,7 +48,7 @@ public class BotuPhotonScript : MonoBehaviourPunCallbacks
     //ルームに入室後に呼び出される
     public override void OnJoinedRoom()
     {
-
+        StartGame();
 
 
         //キャラクターを生成(後でやるかも)
@@ -71,8 +73,17 @@ public class BotuPhotonScript : MonoBehaviourPunCallbacks
     }
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
-        base.OnPlayerEnteredRoom(newPlayer);
-        Debug.Log("OnPlayerEnteredRoom");
-    }
+        StartGame();
 
+    }
+    private void StartGame()
+    {
+        if (PhotonNetwork.CurrentRoom.PlayerCount == 2)
+        {
+            Event.Invoke();
+        }
+    }
 }
+
+
+
