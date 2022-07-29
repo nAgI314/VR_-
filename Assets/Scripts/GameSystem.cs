@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 
 public class GameSystem : MonoBehaviour
 {
+    [SerializeField] TMPro.TextMeshPro text;
     [Serializable] private class AnswerEvent : UnityEvent<CancellationToken> { }
     
     [SerializeField] KarutaHuda _KarutaHudaPrehub = null;
@@ -50,7 +51,7 @@ public class GameSystem : MonoBehaviour
     }
     async void SetAnswer()
     {
-        await Task.Delay(1000);
+        await Task.Delay(1500);
         if (_count == 44)
         {
             PlayerPoint();
@@ -84,7 +85,7 @@ public class GameSystem : MonoBehaviour
     }
     public void GetPoint(Collider huda,bool player)
     {
-
+        
 
         if (player == true)
         {
@@ -93,9 +94,10 @@ public class GameSystem : MonoBehaviour
                 SoundEffectSystem.instance1.MakeSoundTouch();
                 cancellationTokenSource.Cancel();
                 cancellationTokenSource.Dispose();
-                Player1Point = Player1Point + PutPoint(huda.gameObject.GetComponent<KarutaHuda>().hudaID);
+                //Player1Point = Player1Point + PutPoint(huda.gameObject.GetComponent<KarutaHuda>().hudaID);
                 hudaCount1++;
                 _Player1List.Push(huda.gameObject.GetComponent<KarutaHuda>());
+                text.text = _Player1List.Count+"–‡";
 
             }
             else
@@ -106,7 +108,8 @@ public class GameSystem : MonoBehaviour
                 {
 
                     _Player2List.Push(_Player1List.Pop());
-                    
+                    text.text = _Player1List.Count + "–‡";
+
                 }
                 return;
             }
@@ -115,7 +118,7 @@ public class GameSystem : MonoBehaviour
         {
             cancellationTokenSource.Cancel();
             cancellationTokenSource.Dispose();
-            Player2Point = Player2Point + PutPoint(huda.gameObject.GetComponent<KarutaHuda>().hudaID);
+            //Player2Point = Player2Point + PutPoint(huda.gameObject.GetComponent<KarutaHuda>().hudaID);
             hudaCount2++;
             _Player2List.Push(huda.gameObject.GetComponent<KarutaHuda>());
         }
@@ -142,7 +145,8 @@ public class GameSystem : MonoBehaviour
 
     private void PlayerPoint() 
     {
-        if (Player1Point > 22)
+        
+        if (GivePoint() > 22)
         {
             SceneManager.LoadScene("WinScene");
         }
@@ -150,6 +154,21 @@ public class GameSystem : MonoBehaviour
         {
             SceneManager.LoadScene("LoseScene");
         }
+    }
+    public int GivePoint()
+    {
+        //List<KarutaHuda> _Player1ListList = new List<KarutaHuda>();
+        //for (int i=1;i <= _Player1List.Count; i++)
+        //{
+          //  _Player1ListList.Add(_Player1List.Pop());
+
+        //}
+        for (int i=0;i< _Player1List.Count; i++)
+        {
+            Player1Point = Player1Point + PutPoint(_Player1List.ToArray()[i].hudaID);
+
+        }
+        return Player1Point;
     }
 
 }

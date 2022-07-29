@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
+    [SerializeField] TMPro.TextMeshPro text;
     public GameObject score_object = null;
 
     public GameSystem gameSystem;
@@ -13,12 +14,12 @@ public class ScoreManager : MonoBehaviour
     {
 
         int hudaCount1;
-        hudaCount1 = gameSystem.hudaCount1;
+        hudaCount1 = gameSystem.Player1Point;
         //int hudaCount2;
         //hudaCount2 = gameSystem.hudaCount2;
 
-        Text score_text = score_object.GetComponent<Text>();
-        score_text.text = "‚ ‚È‚½‚Ì“¾“_‚Í" + hudaCount1 + "“_";
+        //Text score_text = score_object.GetComponent<Text>();
+        text.text = "score:" + hudaCount1+ "“_";
     }
 
         // Update is called once per frame

@@ -151,7 +151,9 @@ public class KarutaSystem : MonoBehaviour
     public List<int> GetnumberList()
     {
         return _numberList;
+        
     }
+
     }
 
         
