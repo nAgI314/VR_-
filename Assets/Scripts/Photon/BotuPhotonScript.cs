@@ -83,6 +83,10 @@ public class BotuPhotonScript : MonoBehaviourPunCallbacks
             Event.Invoke();
         }
     }
+    public Room GetRoom()
+    {
+        return PhotonNetwork.CurrentRoom;
+    }
 }
 
 

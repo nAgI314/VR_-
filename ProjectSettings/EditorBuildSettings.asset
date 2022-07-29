@@ -14,9 +14,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NewTwoPlayerScene.unity
     guid: 8bf78c4fe627ac042b76797708bbf407
-  - enabled: 0
-    path: Assets/Scenes/TwoPlayerScene.unity
-    guid: e7bc629664999b5459b07dc81128c185
   - enabled: 1
     path: Assets/Scenes/WinScene.unity
     guid: 78f77cc5890b62b4a9d086002ee22b89
