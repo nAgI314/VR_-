@@ -7,6 +7,7 @@ using UnityEngine.Events;
 using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
 
 public class GameSystem : MonoBehaviour
 {
@@ -32,12 +33,17 @@ public class GameSystem : MonoBehaviour
 
     private void Awake()
     {
+        if (PhotonNetwork.LocalPlayer.IsMasterClient == true)
+        {
+            PlayerScript.playerScript.PlayerPut();
+        }
         cardController = new KarutaSystem(_KarutaHudaPrehub);
     }
    
     // Start is called before the first frame update
     void Start()
     {
+
         cardController.Initialize();
         SetAnswer();
 

@@ -27,9 +27,12 @@ public class KarutaSystem : MonoBehaviour
     // Start is called before the first frame update
     public void Initialize()
     {
-        BotuPhotonScript.botuPhotonScript.GetRoom();
-        int seed = (BotuPhotonScript.botuPhotonScript.GetRoom().CustomProperties["seed"] is int value) ? value : 0;
-        Random.InitState(seed);
+        if (BotuPhotonScript.botuPhotonScript.isConnected)
+        {
+            BotuPhotonScript.botuPhotonScript.GetRoom();
+            int seed = (BotuPhotonScript.botuPhotonScript.GetRoom().CustomProperties["seed"] is int value) ? value : 0;
+            Random.InitState(seed);
+        }
         instance = this;
         for (int i = 0; i < 44; i++)
         {
