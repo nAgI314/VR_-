@@ -1541,7 +1541,6 @@ GameObject:
   - component: {fileID: 921669672}
   - component: {fileID: 921669673}
   - component: {fileID: 921669675}
-  - component: {fileID: 921669676}
   m_Layer: 0
   m_Name: CreateKarutas
   m_TagString: Untagged
@@ -1638,7 +1637,7 @@ MonoBehaviour:
   setAnswerEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 921669676}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CPU, Assembly-CSharp
         m_MethodName: OnSetAnswerAsync
         m_Mode: 0
@@ -1667,19 +1666,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7117e294f721934dbfc389188e8bf06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &921669676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 921669669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 606e4b513e2d7bd4d8e2bd21bf1d73c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameSystem: {fileID: 921669673}
 --- !u!1 &1469561216
 GameObject:
   m_ObjectHideFlags: 0

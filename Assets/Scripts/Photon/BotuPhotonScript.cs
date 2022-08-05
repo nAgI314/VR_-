@@ -53,7 +53,7 @@ public class BotuPhotonScript : MonoBehaviourPunCallbacks
 
 
         //キャラクターを生成(後でやるかも)
-        PhotonNetwork.Instantiate("PlayerAvatar", new Vector3(2.295f,0.602f,-0.018f), Quaternion.identity, 0);
+        //PhotonNetwork.Instantiate("PlayerAvatar", new Vector3(2.295f,0.602f,-0.018f), Quaternion.identity, 0);
          //hotonNetwork.Instantiate("ClearBananaMan",new Vector3(2.299f,-0.33f,-0.2f), Quaternion.identity, 0);
         //自分だけが操作できるようにスクリプトを有効にする
 

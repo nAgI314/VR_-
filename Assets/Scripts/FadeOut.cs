@@ -33,21 +33,21 @@ public class FadeOut : MonoBehaviour
     {
         
     }
-    public void Fadeout()
+    public async void Fadeout()
     {
-        //GameObject panel = GameObject.Find("Panel");
-        //Transform loading = panel.transform.Find("Loading");
+        GameObject panel = GameObject.Find("Panel");
+        Transform loading = panel.transform.Find("Loading");
         //alfa = 255;
         GetComponent<Image>().enabled = true;
         //Ç¬Ç¢Ç≈Ç…ï∂éöÇ‡èoÇ∑+loadâÊñ 
-        //GetComponentInChildren<TextMeshPro>().enabled=true ;
-        //loading.gameObject.SetActive(true);
+        GetComponentInChildren<TextMeshPro>().enabled=true ;
+        loading.gameObject.SetActive(true);
         
-        //while (loadStop==false)
-        //{
-          //  await Task.Delay(300);
-            //loading.transform.eulerAngles+= new Vector3(0,0,-45);
-        //}
+        while (loadStop==false)
+        {
+           await Task.Delay(300);
+           loading.transform.eulerAngles+= new Vector3(0,0,-45);
+        }
         
         //for (bool i = true; i ==true;)
         //{
@@ -61,14 +61,14 @@ public class FadeOut : MonoBehaviour
 
 
 
-        // await Task.Delay(100 / 6);
+         //await Task.Delay(100 / 6);
         //alfa += fadeSpeed;
-        // fadeimage.color = new Color(0, 0, 0, alfa);
+         //fadeimage.color = new Color(0, 0, 0, alfa);
         //if (alfa >= 1)
         //{
-        //  i = false;
+          //i = false;
         //}
-        // }
+         //}
          
 
 
