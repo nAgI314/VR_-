@@ -276,6 +276,7 @@ GameObject:
   - component: {fileID: 89328461}
   - component: {fileID: 89328460}
   - component: {fileID: 89328459}
+  - component: {fileID: 89328463}
   - component: {fileID: 89328462}
   m_Layer: 0
   m_Name: Photon
@@ -353,10 +354,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 89328458}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 178573f6e9931874abfadb3395376a4f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ec8540d7f4f72a44953ef498379b460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerObj: {fileID: 1357784645}
+  gameSystem: {fileID: 0}
+--- !u!114 &89328463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89328458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &96649402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1961,9 +1984,9 @@ MonoBehaviour:
   setAnswerEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CPU, Assembly-CSharp
-        m_MethodName: OnSetAnswerAsync
+      - m_Target: {fileID: 89328462}
+        m_TargetAssemblyTypeName: CommunicationScript, Assembly-CSharp
+        m_MethodName: OnStartReading
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2048,6 +2071,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1357784646}
+  - component: {fileID: 1357784647}
   m_Layer: 0
   m_Name: PlayerObj
   m_TagString: Untagged
@@ -2071,6 +2095,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1357784647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357784645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 178573f6e9931874abfadb3395376a4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerObj: {fileID: 1357784645}
 --- !u!1001 &1392459876
 PrefabInstance:
   m_ObjectHideFlags: 0

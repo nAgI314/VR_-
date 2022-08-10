@@ -28,9 +28,11 @@ public class GameSystem : MonoBehaviour
     public int hudaCount2 = 0;
     Stack<KarutaHuda> _Player1List = new Stack<KarutaHuda>();
     Stack<KarutaHuda> _Player2List = new Stack<KarutaHuda>();
-
+    GameObject karuta=null;
+    KarutaHuda karuta_hudaID = null;
     bool jin;
-
+    public static GameSystem instanceGameS = null;
+    
     private void Awake()
     {
         
@@ -56,9 +58,9 @@ public class GameSystem : MonoBehaviour
     {
 
     }
-    async void SetAnswer()
+    public void SetAnswer()
     {
-        await Task.Delay(1500);
+        
         if (_count == 44)
         {
             PlayerPoint();
@@ -74,9 +76,10 @@ public class GameSystem : MonoBehaviour
             karutaEhuda[i].gameObject.GetComponent<BoxCollider>().enabled = karutaEhuda[i].Jin != jin;
         }
         
-        GameObject karuta = karutaEhuda[shuffleNumber[_count]].gameObject;
+        karuta = karutaEhuda[shuffleNumber[_count]].gameObject;
+        karuta_hudaID = karutaEhuda[shuffleNumber[_count]];
         audioSource.PlayOneShot( karuta.GetComponent<KarutaHuda>().Getsound());
-        
+
         
 
         BoxCollider boxCollider = karuta.GetComponent<BoxCollider>();
@@ -132,7 +135,7 @@ public class GameSystem : MonoBehaviour
         huda.gameObject.SetActive(false);
         audioSource.Stop();
 
-        SetAnswer();
+        Wait();
     }
     private int PutPoint(int Id)
     {
@@ -177,6 +180,35 @@ public class GameSystem : MonoBehaviour
         }
         return Player1Point;
     }
+    public bool IsCorrectCard(Collider huda)
+    {
+        return huda.gameObject.GetComponent<KarutaHuda>().Jin == jin;
+    }
+    public void DisableAllColliders(Collider huda)
+    {
+        huda.gameObject.SetActive(false);
+    }
+    public void Miss(bool isMyself)
+    {
+        if (isMyself == true)
+        {
+            //Ç®éËïtÇ´èàóùÇ™Ç≈Ç´ÇƒÇ»Ç¢
+            MissEvent.Invoke();
+            SoundEffectSystem.instance1.MakeSoundNoTouch();
+        }
+        
+       
 
+        
+    }
+    public int Getkaruta_hudaID()
+    {
+        return karuta_hudaID.hudaID;
+    }
+    async void Wait()
+    {
+        await Task.Delay(1500);
+        SetAnswer();
+    }
 }
 
