@@ -22,6 +22,9 @@ public class OVRInputTest : MonoBehaviour
     bool miss;
     float timer;
 
+    public static OVRInputTest instanceOVRIn = null;
+    public Collider hudaCollider=null;
+
     public bool GetIsTriggerDown()
     {
         return isTriggerDown;
@@ -65,18 +68,18 @@ public class OVRInputTest : MonoBehaviour
    
     public void OnTriggerEnter(Collider other)
     {
-        
-      
 
+
+        other = hudaCollider;
         // コントローラーのTriggerが押されており、対象がプレイヤー自身でない
-        if (isTriggerDown==true && other.tag != "Player"&&miss==false)
+        if (isTriggerDown==true && hudaCollider.tag != "Player"&&miss==false)
         {
-            text.text="tag:"+other.tag;
+            text.text="tag:"+hudaCollider.tag;
             
             //ここから自分で打ったやつ（点数いれたり）
 
             
-            touchEvent.Invoke(other,true);
+            touchEvent.Invoke(hudaCollider,true);
             //ここまで自分で打ったやつ
             // コントローラーとつかんだオブジェクトのtransformを同期
 
@@ -87,5 +90,9 @@ public class OVRInputTest : MonoBehaviour
     {
         miss = true;
         timer = 0;
+    }
+    public Collider GethudaCollider()
+    {
+        return hudaCollider;
     }
 }

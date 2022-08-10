@@ -1,3 +1,5 @@
+using Photon.Pun;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -27,5 +29,22 @@ public class CommunicationScript : MonoBehaviour
     public void OnStartReading(CancellationToken cancellationToken)
     {
         correctCardID = GameSystem.instanceGameS.Getkaruta_hudaID();
+        timeToStartReading = PhotonNetwork.ServerTimestamp;
+        gotCard = false;
+        gotCardByOpponent = false;
     }
+    public void OnTouchCard(Collider collider,Boolean player)
+    {
+        gotCard = true;
+        timeTookToGot = PhotonNetwork.ServerTimestamp - timeToStartReading;
+        if (GameSystem.instanceGameS.IsCorrectCard(OVRInputTest.instanceOVRIn.GethudaCollider())==true)
+        {
+            //続きはここからRPCを使うらしい（スプレッドシートをみて）
+        }
+        else
+        {
+
+        }
+    }
+
 }
