@@ -81,7 +81,7 @@ public class BotuPhotonScript : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.CurrentRoom.PlayerCount == 2)
         {
-            FadeOut.fadeOut.LoadStop();
+            //FadeOut.fadeOut.LoadStop();
             Event.Invoke();
         }
     }

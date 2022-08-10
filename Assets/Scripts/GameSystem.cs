@@ -33,7 +33,7 @@ public class GameSystem : MonoBehaviour
 
     private void Awake()
     {
-        FadeOut.fadeOut.LoadStop();
+        
         if (PhotonNetwork.LocalPlayer.IsMasterClient == true)
         {
             PlayerScript.playerScript.PlayerPut();
