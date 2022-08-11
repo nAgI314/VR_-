@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-public class CommunicationScript : MonoBehaviour
+public class CommunicationScript : MonoBehaviourPunCallbacks
 {
     [SerializeField] public GameSystem gameSystem;
     private int correctCardID;
@@ -39,12 +39,31 @@ public class CommunicationScript : MonoBehaviour
         timeTookToGot = PhotonNetwork.ServerTimestamp - timeToStartReading;
         if (GameSystem.instanceGameS.IsCorrectCard(OVRInputTest.instanceOVRIn.GethudaCollider())==true)
         {
-            //続きはここからRPCを使うらしい（スプレッドシートをみて）
+            photonView.RPC(nameof(TakenCardByOpponent), RpcTarget.Others,correctCardID, timeTookToGot);
+            GameSystem.instanceGameS.DisableAllColliders();
         }
         else
         {
-
+            //ここは不安
+            photonView.RPC(nameof(GotWrongCard), RpcTarget.AllViaServer, correctCardID);
         }
+    }
+    private void DecidedWhoGetCard()
+    {
+
+    }
+    [PunRPC]
+    private void TakenCardByOpponent()
+    {
+
+    }
+    private void GotCorrectCard(int cardID,bool isMasterClient)
+    {
+
+    }
+    private void GotWrongCard(int cardID,bool isMasterCLIent)
+    {
+
     }
 
 }

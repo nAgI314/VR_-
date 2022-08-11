@@ -184,9 +184,12 @@ public class GameSystem : MonoBehaviour
     {
         return huda.gameObject.GetComponent<KarutaHuda>().Jin == jin;
     }
-    public void DisableAllColliders(Collider huda)
+    public void DisableAllColliders()//‘S•”‚Ìcollider‚ðoff‚É‚·‚é
     {
-        huda.gameObject.SetActive(false);
+        for (int i = 1; i <= cardController.GetKarutaList().Count; i++)
+        {
+            cardController.GetKarutaList()[i].enabled = false;
+        }
     }
     public void Miss(bool isMyself)
     {
