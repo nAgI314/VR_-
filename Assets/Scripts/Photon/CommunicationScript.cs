@@ -50,20 +50,34 @@ public class CommunicationScript : MonoBehaviourPunCallbacks
     }
     private void DecidedWhoGetCard()
     {
-
+        if(gotCard==false || timeTookToGotByOpponent<timeTookToGot || timeTookToGotByOpponent==timeTookToGot && PhotonNetwork.IsMasterClient == true)
+        {
+            photonView.RPC(nameof(GotCorrectCard), RpcTarget.AllViaServer, correctCardID, !PhotonNetwork.IsMasterClient);
+        }
     }
     [PunRPC]
-    private void TakenCardByOpponent()
+    private void TakenCardByOpponent(int cardID,int time)
     {
+        if (cardID == correctCardID)
+        {
+            timeTookToGotByOpponent = time;
+            gotCardByOpponent = false;
+            
+            
 
+            
+        }
     }
     private void GotCorrectCard(int cardID,bool isMasterClient)
     {
 
     }
-    private void GotWrongCard(int cardID,bool isMasterCLIent)
+    private void GotWrongCard(int cardID,bool isMasterClient)
     {
-
+        if(cardID==correctCardID && gotCard==true || gotCardByOpponent == true)
+        {
+            GameSystem.instanceGameS.Miss(isMasterClient == PhotonNetwork.IsMasterClient);
+        }
     }
 
 }
