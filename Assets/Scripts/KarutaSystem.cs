@@ -161,6 +161,6 @@ public class KarutaSystem : MonoBehaviour
         
     }
 
-    }
+}
 
         

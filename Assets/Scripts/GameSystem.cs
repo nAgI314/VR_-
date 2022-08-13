@@ -99,7 +99,7 @@ public class GameSystem : MonoBehaviour
 
         if (player == true)
         {
-            if (huda.gameObject.GetComponent<KarutaHuda>().Jin == jin)
+            if (IsCorrectCard(huda)==true)
             {
                 SoundEffectSystem.instance1.MakeSoundTouch();
                 cancellationTokenSource.Cancel();
