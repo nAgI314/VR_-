@@ -35,12 +35,11 @@ public class GameSystem : MonoBehaviour
     
     private void Awake()
     {
-        
-        if (PhotonNetwork.LocalPlayer.IsMasterClient == true)
+        if (instanceGameS == null)
         {
-            PlayerScript.playerScript.PlayerPut();
+            instanceGameS = this;
         }
-        cardController = new KarutaSystem(_KarutaHudaPrehub);
+        
     }
    
     // Start is called before the first frame update
@@ -49,7 +48,11 @@ public class GameSystem : MonoBehaviour
 
         cardController.Initialize();
         SetAnswer();
-
+        if (PhotonNetwork.LocalPlayer.IsMasterClient == true)
+        {
+            PlayerScript.playerScript.PlayerPut();
+        }
+        cardController = new KarutaSystem(_KarutaHudaPrehub);
 
     }
 
@@ -186,7 +189,7 @@ public class GameSystem : MonoBehaviour
     }
     public void DisableAllColliders()//‘S•”‚Ìcollider‚ðoff‚É‚·‚é
     {
-        for (int i = 1; i <= cardController.GetKarutaList().Count; i++)
+        for (int i = 0; i < cardController.GetKarutaList().Count; i++)
         {
             cardController.GetKarutaList()[i].enabled = false;
         }

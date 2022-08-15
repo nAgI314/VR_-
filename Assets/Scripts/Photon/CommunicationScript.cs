@@ -31,44 +31,65 @@ public class CommunicationScript : MonoBehaviourPunCallbacks
     {
         
     }
+    /// <summary>
+    /// 読み札が読み上げられたときに呼び出される関数
+    /// </summary>
+    /// <param name="cancellationToken"></param>
     public void OnStartReading(CancellationToken cancellationToken)
     {
         correctCardID = GameSystem.instanceGameS.Getkaruta_hudaID();
         timeToStartReading = PhotonNetwork.ServerTimestamp;
+        timeTookToGot = int.MinValue;
         gotCard = false;
         gotCardByOpponent = false;
-        gotCorrectCard = false;
-        gotCorrectCardByOpponent = false;
-        gotWrongCard = false;
-        gotWrongCardByOpponent = false;
+        //gotCorrectCard = false;
+        //gotCorrectCardByOpponent = false;
+        //gotWrongCard = false;
+        //gotWrongCardByOpponent = false;
     }
+    /// <summary>
+    /// カードをタッチしたときに呼び出される関数
+    /// </summary>
+    /// <param name="collider"></param>
+    /// <param name="player"></param>
     public void OnTouchCard(Collider collider, bool player)
     {
-        gotCard = true;
+        
         
         //正解を取ったかの判定
-        if (GameSystem.instanceGameS.IsCorrectCard(OVRInputTest.instanceOVRIn.GethudaCollider())==true)
+        if (GameSystem.instanceGameS.IsCorrectCard(collider)==true)
         {
-            gotCorrectCard = true;
+            gotCard = true;
+            //gotCorrectCard = true;
             timeTookToGot = PhotonNetwork.ServerTimestamp - timeToStartReading;
             photonView.RPC(nameof(TakenCardByOpponent), RpcTarget.Others,correctCardID, timeTookToGot);
             GameSystem.instanceGameS.DisableAllColliders();
         }
         else
         {
-            gotWrongCard = false;
+            //gotWrongCard = false;
             //ここは不安
-            photonView.RPC(nameof(GotWrongCard), RpcTarget.AllViaServer, correctCardID);
+            photonView.RPC(nameof(GotWrongCard), RpcTarget.AllViaServer, correctCardID,PhotonNetwork.IsMasterClient );
 
         }
     }
+    /// <summary>
+    /// カードをとった側が決まった時に呼び出す
+    /// </summary>
     private void DecidedWhoGetCard()
     {
-        if(gotCorrectCard==false || timeTookToGotByOpponent<timeTookToGot || timeTookToGotByOpponent==timeTookToGot && PhotonNetwork.IsMasterClient == true)
+        if(gotCorrectCard==false ||
+            timeTookToGotByOpponent<timeTookToGot ||
+            timeTookToGotByOpponent==timeTookToGot && PhotonNetwork.IsMasterClient == true)
         {
             photonView.RPC(nameof(GotCorrectCard), RpcTarget.AllViaServer, correctCardID, !PhotonNetwork.IsMasterClient);
         }
     }
+    /// <summary>
+    /// 相手が正解を取った
+    /// </summary>
+    /// <param name="cardID"></param>
+    /// <param name="time"></param>
     [PunRPC]
     private async void TakenCardByOpponent(int cardID,int time)
     {//あいてが正解を取った
@@ -108,6 +129,7 @@ public class CommunicationScript : MonoBehaviourPunCallbacks
             
         }
     }
+    [PunRPC]
     private void GotCorrectCard(int cardID,bool isMasterClient)
     {
         if (cardID == correctCardID)
@@ -122,6 +144,7 @@ public class CommunicationScript : MonoBehaviourPunCallbacks
             }
         }
     }
+    [PunRPC]
     private void GotWrongCard(int cardID,bool isMasterClient)
     {
         if(cardID==correctCardID)

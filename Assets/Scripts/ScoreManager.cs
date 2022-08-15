@@ -14,7 +14,7 @@ public class ScoreManager : MonoBehaviour
     {
 
         int hudaCount1;
-        hudaCount1 = gameSystem.Player1Point;
+        hudaCount1 = GameSystem.instanceGameS.Player1Point;
         //int hudaCount2;
         //hudaCount2 = gameSystem.hudaCount2;
 

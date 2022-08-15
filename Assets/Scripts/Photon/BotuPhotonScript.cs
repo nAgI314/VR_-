@@ -61,16 +61,18 @@ public class BotuPhotonScript : MonoBehaviourPunCallbacks
     }
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
-        Hashtable hashtable = new Hashtable();
-        hashtable["seed"] = (int)(Random.Range(float.MinValue, float.MaxValue));
+        var hashtable = new ExitGames.Client.Photon.Hashtable();
+        hashtable.Add("seed", Random.Range(int.MaxValue, int.MinValue)); //= (int)(Random.Range(float.MinValue, float.MaxValue));
+        
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 2;
         roomOptions.IsOpen = true;
         roomOptions.IsVisible = true;
-        roomOptions.CustomRoomPropertiesForLobby = new[] { "seed" };
+        //roomOptions.CustomRoomPropertiesForLobby = new[] { "seed" };
+        roomOptions.CustomRoomProperties = hashtable;
 
         //TODO: ñ≥å¿ÉãÅ[Év
-        PhotonNetwork.JoinOrCreateRoom(Random.Range(float.MinValue,float.MaxValue).ToString(), new RoomOptions(), TypedLobby.Default);
+        PhotonNetwork.JoinOrCreateRoom(Random.Range(int.MinValue,int.MaxValue).ToString(),roomOptions, TypedLobby.Default);
     }
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {

@@ -74,8 +74,10 @@ public class OVRInputTest : MonoBehaviour
         // コントローラーのTriggerが押されており、対象がプレイヤー自身でない
         if (isTriggerDown==true && hudaCollider.tag != "Player"&&miss==false)
         {
-            text.text="tag:"+hudaCollider.tag;
-            
+            if (text != null)
+            {
+                text.text = "tag:" + hudaCollider.tag;
+            }
             //ここから自分で打ったやつ（点数いれたり）
 
             
