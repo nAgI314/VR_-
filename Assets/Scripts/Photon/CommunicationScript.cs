@@ -15,10 +15,10 @@ public class CommunicationScript : MonoBehaviourPunCallbacks
     private int timeTookToGotByOpponent;
     private bool gotCard;
     private bool gotCardByOpponent;
-    private bool gotCorrectCard;
-    private bool gotCorrectCardByOpponent;
-    private bool gotWrongCard;
-    private bool gotWrongCardByOpponent;
+    //private bool gotCorrectCard;
+    //private bool gotCorrectCardByOpponent;
+    //private bool gotWrongCard;
+    //private bool gotWrongCardByOpponent;
 
     // Start is called before the first frame update
     void Start()
@@ -78,7 +78,7 @@ public class CommunicationScript : MonoBehaviourPunCallbacks
     /// </summary>
     private void DecidedWhoGetCard()
     {
-        if(gotCorrectCard==false ||
+        if(gotCard==false ||
             timeTookToGotByOpponent<timeTookToGot ||
             timeTookToGotByOpponent==timeTookToGot && PhotonNetwork.IsMasterClient == true)
         {
@@ -91,37 +91,29 @@ public class CommunicationScript : MonoBehaviourPunCallbacks
     /// <param name="cardID"></param>
     /// <param name="time"></param>
     [PunRPC]
-    private async void TakenCardByOpponent(int cardID,int time)
+    private void TakenCardByOpponent(int cardID,int time)
     {//Ç†Ç¢ÇƒÇ™ê≥âÇéÊÇ¡ÇΩ
         if (cardID == correctCardID)
         {
             timeTookToGotByOpponent = time;
-            gotCorrectCardByOpponent = true;
-            if (gotCorrectCard == true)
-            {
-                if (timeTookToGotByOpponent <= timeTookToGot)
-                {
-                    DecidedWhoGetCard();
-                }
-                else
-                {
-
-                }
-                
+            gotCardByOpponent = true;
+            if (timeTookToGotByOpponent <= (gotCard ? timeTookToGot : PhotonNetwork.ServerTimestamp - timeToStartReading))
+            { 
+                //if (timeTookToGotByOpponent <= timeTookToGot)
+                //{
+                DecidedWhoGetCard();
+                //}
             }
             else
             {
-                await Task.Delay(timeTookToGotByOpponent);
-                if (gotCorrectCard == true)
+                //await Task.Delay(timeTookToGotByOpponent);
+                if (gotCard == true)
                 {
-                    if (timeTookToGotByOpponent <= timeTookToGot)
-                    {
-                        DecidedWhoGetCard();
-                    }
+                    
                 }
                 else
                 {
-                    DecidedWhoGetCard();
+                    Invoke(nameof(DecidedWhoGetCard), (PhotonNetwork.ServerTimestamp - timeToStartReading) / 1000f);
                 }
             }
             
@@ -134,14 +126,14 @@ public class CommunicationScript : MonoBehaviourPunCallbacks
     {
         if (cardID == correctCardID)
         {
-            if (isMasterClient == PhotonNetwork.IsMasterClient)
-            {
-                GameSystem.instanceGameS.GetPoint(OVRInputTest.instanceOVRIn.GethudaCollider(),isMasterClient==PhotonNetwork.IsMasterClient);
-            }
-            else
-            {
+            //if (isMasterClient == PhotonNetwork.IsMasterClient)
+            //{
+            GameSystem.instanceGameS.GetPoint(GameSystem.instanceGameS.Getanswer().GetComponent<Collider>(), isMasterClient == PhotonNetwork.IsMasterClient); 
+            //}
+            
+            
 
-            }
+            
         }
     }
     [PunRPC]
@@ -149,11 +141,11 @@ public class CommunicationScript : MonoBehaviourPunCallbacks
     {
         if(cardID==correctCardID)
         {
-            //if (gotCard == false && gotCardByOpponent == false)
-            //{
-                gotWrongCard = false;
+            if (gotCard == false && gotCardByOpponent == false)
+            {
+                //gotWrongCard = false;
                 GameSystem.instanceGameS.Miss(isMasterClient == PhotonNetwork.IsMasterClient);
-            //}
+            }
         }
     }
 
