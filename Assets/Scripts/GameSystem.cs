@@ -45,14 +45,14 @@ public class GameSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        cardController = new KarutaSystem(_KarutaHudaPrehub);
         cardController.Initialize();
         SetAnswer();
         if (PhotonNetwork.LocalPlayer.IsMasterClient == true)
         {
             PlayerScript.playerScript.PlayerPut();
         }
-        cardController = new KarutaSystem(_KarutaHudaPrehub);
+        
 
     }
 
