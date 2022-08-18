@@ -1231,6 +1231,7 @@ MonoBehaviour:
       m_Calls: []
   KarutaSystem: {fileID: 0}
   GameSystem: {fileID: 0}
+  hudaCollider: {fileID: 0}
 --- !u!114 &784444506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1482,7 +1483,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &1093293948
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3958,6 +3959,7 @@ MonoBehaviour:
       m_Calls: []
   KarutaSystem: {fileID: 0}
   GameSystem: {fileID: 0}
+  hudaCollider: {fileID: 0}
 --- !u!114 &1737726415
 MonoBehaviour:
   m_ObjectHideFlags: 0
