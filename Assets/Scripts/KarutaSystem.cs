@@ -36,7 +36,7 @@ public class KarutaSystem : MonoBehaviour
         instance = this;
         for (int i = 0; i < 44; i++)
         {
-            _textureList.Add(Resources.Load<Texture>(string.Format("Texture/Karuta/{0}", i)));
+            _textureList.Add(Resources.Load<Texture>(string.Format("Texture/clearKaruta/{0}", i)));
             _numberList.Add(i);
             _voiceList.Add(string.Format("Sound/Karuta/{0}", i));
             KarutaHuda newObj = GameObject.Instantiate<KarutaHuda>(_KarutaHudaPrehub);
