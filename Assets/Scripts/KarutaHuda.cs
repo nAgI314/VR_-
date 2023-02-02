@@ -25,7 +25,6 @@ public class KarutaHuda : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -33,14 +32,12 @@ public class KarutaHuda : MonoBehaviour
 
     public void SetHudaID(int hudaID)
     {
-       
+        
         _hudaID = hudaID;
+        Debug.Log($"HudaID aaaa = {_hudaID}");
         SetTexture(KarutaSystem.instance.GetTexture(_hudaID));
         SetSound(KarutaSystem.instance.GetSound(_hudaID)); 
-       
     }
-
-
 
     void SetTexture(Texture texture)
     {
@@ -55,15 +52,14 @@ public class KarutaHuda : MonoBehaviour
     void SetSound(string soundPath)
     {
         soundCheck = soundPath;
-
-        
-
-        
+ 
     }
+
     public AudioClip Getsound()
     {
         return Resources.Load<AudioClip>(soundCheck);
     }
+
     public void Setjin(int maisuu)
     {
         if (maisuu > 22)
