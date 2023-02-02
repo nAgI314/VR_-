@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
 [Serializable] public class TouchEvent : UnityEvent<Collider, bool> { }
 public class OVRInputTest : MonoBehaviour
 {

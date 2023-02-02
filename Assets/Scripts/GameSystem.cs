@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 
+
 public class GameSystem : MonoBehaviour
 {
     [SerializeField] TMPro.TextMeshPro text;
@@ -32,7 +33,8 @@ public class GameSystem : MonoBehaviour
     KarutaHuda karuta_hudaID = null;
     bool jin;
     public static GameSystem instanceGameS = null;
-    
+    int hudaAmount = 44;
+
     private void Awake()
     {
         if (instanceGameS == null)
@@ -63,8 +65,11 @@ public class GameSystem : MonoBehaviour
     }
     public void SetAnswer()
     {
-        
-        if (_count == 44)
+        if (SceneManager.GetActiveScene().name == "ShortVersionScene")//ショートバージョンの時
+        {
+            hudaAmount = 6;
+        } 
+            if (_count == hudaAmount)
         {
             PlayerPoint();
         }
@@ -159,7 +164,7 @@ public class GameSystem : MonoBehaviour
     private void PlayerPoint() 
     {
         
-        if (GivePoint() > 22)
+        if (GivePoint() > hudaAmount/2)
         {
             SceneManager.LoadScene("WinScene");
         }

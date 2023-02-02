@@ -105,6 +105,7 @@ MonoBehaviour:
   _material: {fileID: 2100000, guid: 480dd5ac2fca8b64586ce7ef3452d436, type: 2}
   _cubeA: {fileID: 4994523280561304004}
   _hudaID: 0
+  jin: 0
 --- !u!114 &6926522374504392150
 MonoBehaviour:
   m_ObjectHideFlags: 0
