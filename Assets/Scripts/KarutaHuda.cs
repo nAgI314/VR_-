@@ -5,19 +5,22 @@ using UnityEngine;
 public class KarutaHuda : MonoBehaviour
 {
 
-    [SerializeField] Material _material = null;
-    Material _myMaterial = null;
-    [SerializeField] MeshRenderer _cubeA = null;
-    // Start is called before the first frame update
-
+    [SerializeField] private Material _material = null;
+    [SerializeField] private Material _myMaterial = null;
+    [SerializeField] private MeshRenderer _cubeA = null;
     [SerializeField] private int _hudaID = 0;
-
-    [SerializeField] bool jin;
+    [SerializeField] private bool _jin;
+    
     private string soundCheck = null;
-    public int hudaID  { get; set; }
+
+    public int hudaID 
+    { 
+        get { return _hudaID; } 
+    }
+
     public bool Jin
     {
-        get { return jin; }
+        get { return _jin; }
     }
     
     void Start()
@@ -34,7 +37,6 @@ public class KarutaHuda : MonoBehaviour
     {
         
         _hudaID = hudaID;
-        Debug.Log($"HudaID aaaa = {_hudaID}");
         SetTexture(KarutaSystem.instance.GetTexture(_hudaID));
         SetSound(KarutaSystem.instance.GetSound(_hudaID)); 
     }
@@ -64,11 +66,11 @@ public class KarutaHuda : MonoBehaviour
     {
         if (maisuu > 22)
         {
-            jin = true;
+            _jin = true;
         }
         else
         {
-            jin = false;
+            _jin = false;
         }
     }
 }

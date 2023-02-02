@@ -16,7 +16,7 @@ public class GameSystem : MonoBehaviour
     // 各自の取得枚数の表示用
     [SerializeField] TMPro.TextMeshPro text;
     [Serializable] private class AnswerEvent : UnityEvent<CancellationToken> { }
-    
+
     // カルタのテクスチャを貼る前の札オブジェクト
     [SerializeField] KarutaHuda _KarutaHudaPrehub = null;
     [SerializeField] AudioSource audioSource = null;
@@ -24,7 +24,7 @@ public class GameSystem : MonoBehaviour
     // 間違えた札を取得した際のイベント
     [SerializeField] private UnityEvent MissEvent = new UnityEvent();
     // 正解の札を取得した際のイベント
-    [SerializeField]private AnswerEvent setAnswerEvent = new AnswerEvent();
+    [SerializeField] private AnswerEvent setAnswerEvent = new AnswerEvent();
     CancellationTokenSource cancellationTokenSource;
     // カルタの札を管理しているもの
     KarutaSystem cardController;
@@ -49,6 +49,9 @@ public class GameSystem : MonoBehaviour
     [SerializeField]
     private GameObject obj = default;
 
+    [SerializeField]
+    private CPU cpu = default;
+
     private void Awake()
     {
         if (instanceGameS == null)
@@ -56,11 +59,11 @@ public class GameSystem : MonoBehaviour
             instanceGameS = this;
         }
     }
-   
+
     void Start()
     {
         cardController = new KarutaSystem(_KarutaHudaPrehub);
-        
+
         // カードをシャッフルして並べる
         cardController.Initialize();
 
@@ -89,9 +92,8 @@ public class GameSystem : MonoBehaviour
         for (int i = 0; i < karutaEhuda.Count; i++)
         {
             karutaEhuda[i].gameObject.GetComponent<BoxCollider>().enabled = karutaEhuda[i].Jin != jin;
-            Debug.Log($"aaafeaga hudaID == {karutaEhuda[i].hudaID}");
         }
-        
+
         // 次に読まれる札オブジェ
         karuta = karutaEhuda[shuffleNumber[_count]].gameObject;
         // 次に読まれる札のID
@@ -122,25 +124,7 @@ public class GameSystem : MonoBehaviour
                 hudaCount1++;
                 _Player1List.Push(huda.gameObject.GetComponent<KarutaHuda>());
                 text.text = _Player1List.Count + "枚";
-
-                // debug
-                Debug.Log($"aa HudaID = {_Player1List.Peek().hudaID}");
-                Debug.Log($"aa Player1Point = {Player1Point}");
-                Debug.Log($"aa hudaCount1 = {hudaCount1}");
-                Debug.Log($"aa HudaID = {_Player1List.Peek().hudaID}");
-                Debug.Log($"aa _count = {_count}");
-                Debug.Log($"aa karuta_hudaID = {karuta_hudaID}");
-                Debug.Log($"init aa Getkaruta_hudaID = {Getkaruta_hudaID()}");
-
-                Debug.Log($"aaaaa HudaID  → {_Player1List.ToArray()[_Player1List.Count - 1].hudaID}");
-
-                Debug.Log($"hudaId aaaa === {huda.gameObject.GetComponent<KarutaHuda>().hudaID}");
-                Debug.Log($"aaaaaaaaaaaaaaaaaa k_hudaID = {karuta_hudaID.hudaID}");
-
-                foreach(KarutaHuda k in _Player1List.ToArray())
-                {
-                    Debug.Log($"aaaabc hudaID = {k.hudaID}");
-                }
+                cpu.PlayAnime("LosePose");
             }
             else
             {
@@ -156,6 +140,8 @@ public class GameSystem : MonoBehaviour
         }
         else
         {
+            cpu.PlayAnime("WinPose");
+
             cancellationTokenSource.Cancel();
             cancellationTokenSource.Dispose();
             //Player2Point = Player2Point + PutPoint(huda.gameObject.GetComponent<KarutaHuda>().hudaID);
@@ -164,7 +150,7 @@ public class GameSystem : MonoBehaviour
         }
         huda.gameObject.SetActive(false);
         audioSource.Stop();
-
+        
         Wait();
     }
 
@@ -183,13 +169,13 @@ public class GameSystem : MonoBehaviour
 
     public GameObject Getanswer()
     {
-        return cardController.GetKarutaList() [cardController.GetnumberList()[_count-1]].gameObject;
+        return cardController.GetKarutaList()[cardController.GetnumberList()[_count - 1]].gameObject;
     }
 
     // 最終的な勝敗判定
-    private void PlayerPoint() 
+    private void PlayerPoint()
     {
-        
+
         if (GivePoint() > 22)
         {
             SceneManager.LoadScene("WinScene");
@@ -206,13 +192,12 @@ public class GameSystem : MonoBehaviour
         //List<KarutaHuda> _Player1ListList = new List<KarutaHuda>();
         //for (int i=1;i <= _Player1List.Count; i++)
         //{
-          //  _Player1ListList.Add(_Player1List.Pop());
+        //  _Player1ListList.Add(_Player1List.Pop());
 
         //}
-        for (int i = 0; i< _Player1List.Count; i++)
+        for (int i = 0; i < _Player1List.Count; i++)
         {
             Player1Point = Player1Point + PutPoint(_Player1List.ToArray()[i].hudaID);
-
         }
         return Player1Point;
     }
@@ -248,7 +233,7 @@ public class GameSystem : MonoBehaviour
 
     async void Wait()
     {
-        await Task.Delay(1500);
+        await Task.Delay(2000);
         SetAnswer();
     }
 }

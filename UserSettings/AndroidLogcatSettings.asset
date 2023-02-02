@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "1WMHHB65512172",
         "name": "com.DefaultCompany.VR",
-        "processId": 10598,
+        "processId": 26573,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -199,6 +199,84 @@
             "name": "com.DefaultCompany.VR",
             "processId": 10598,
             "exited": false
+        },
+        {
+            "deviceId": "1WMHHB65512172",
+            "name": "com.DefaultCompany.VR",
+            "processId": 11560,
+            "exited": false
+        },
+        {
+            "deviceId": "1WMHHB65512172",
+            "name": "com.DefaultCompany.VR",
+            "processId": 13820,
+            "exited": false
+        },
+        {
+            "deviceId": "1WMHHB65512172",
+            "name": "com.DefaultCompany.VR",
+            "processId": 14114,
+            "exited": false
+        },
+        {
+            "deviceId": "1WMHHB65512172",
+            "name": "com.DefaultCompany.VR",
+            "processId": 14723,
+            "exited": false
+        },
+        {
+            "deviceId": "1WMHHB65512172",
+            "name": "com.DefaultCompany.VR",
+            "processId": 15368,
+            "exited": false
+        },
+        {
+            "deviceId": "1WMHHB65512172",
+            "name": "com.DefaultCompany.VR",
+            "processId": 15819,
+            "exited": false
+        },
+        {
+            "deviceId": "1WMHHB65512172",
+            "name": "com.DefaultCompany.VR",
+            "processId": 16386,
+            "exited": false
+        },
+        {
+            "deviceId": "1WMHHB65512172",
+            "name": "com.DefaultCompany.VR",
+            "processId": 17908,
+            "exited": false
+        },
+        {
+            "deviceId": "1WMHHB65512172",
+            "name": "com.DefaultCompany.VR",
+            "processId": 24352,
+            "exited": false
+        },
+        {
+            "deviceId": "1WMHHB65512172",
+            "name": "com.DefaultCompany.VR",
+            "processId": 24697,
+            "exited": false
+        },
+        {
+            "deviceId": "1WMHHB65512172",
+            "name": "com.DefaultCompany.VR",
+            "processId": 25690,
+            "exited": false
+        },
+        {
+            "deviceId": "1WMHHB65512172",
+            "name": "com.DefaultCompany.VR",
+            "processId": 26218,
+            "exited": false
+        },
+        {
+            "deviceId": "1WMHHB65512172",
+            "name": "com.DefaultCompany.VR",
+            "processId": 26573,
+            "exited": false
         }
     ],
     "m_Tags": {
@@ -252,7 +330,7 @@
         "Behavior": 0
     },
     "m_FilterOptions": {
-        "m_Filter": "aa",
+        "m_Filter": "",
         "m_UseRegularExpressions": false,
         "m_MatchCase": false
     },

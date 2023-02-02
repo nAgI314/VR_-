@@ -2001,6 +2001,7 @@ MonoBehaviour:
   hudaCount2: 0
   debugText: {fileID: 1735971516}
   obj: {fileID: 685924251}
+  cpu: {fileID: 921669674}
 --- !u!114 &921669674
 MonoBehaviour:
   m_ObjectHideFlags: 0
