@@ -1,0 +1,85 @@
+ManifestFileVersion: 0
+CRC: 1087310734
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c7eace18172d7ae061e892695139ae83
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 3994dd941ec12762c016da7ecfe30989
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 20
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 81
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 7e933e81d3c20c74ea6fdc708a67e3a5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: cb7623a8f0b49cf4dbaa40aea4d4be64, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: aab4c587457d86f4ca80582f946785ad, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: df653e880d6909d40ac4cbede0ac97f1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 79b7e65854ace8f44b05c52c6e824354, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: df9f338034892c44ebb62d97894772f1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 674a40251fe8ad841b18517ac5209957, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f57f1a83306902c49a5779147e952b29, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5178bc8574ce2bf4388e787a2e2af326, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fd425c2d06f39bf4899d07c05d0f10eb, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f7117e294f721934dbfc389188e8bf06, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d069d7231a311f947abef4c5a5080cdb, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: aed62bf3ae2456c408f247f96808ce96, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Oculus/SampleFramework/Core/CustomHands/CustomHandLeft.prefab
+- Assets/Oculus/SampleFramework/Core/CustomHands/Models/HandPoseDefaultPf.prefab
+- Assets/Oculus/SampleFramework/Core/CustomHands/CustomHandRight.prefab
+- Assets/Oculus/VR/Prefabs/OVRCustomHandPrefab_L.prefab
+- Assets/Oculus/VR/Prefabs/OVRCustomHandPrefab_R.prefab
+- Assets/Oculus/VR/Prefabs/OVRCameraRig.prefab
+- Assets/Oculus/VR/Prefabs/OVRControllerPrefab.prefab
+- Assets/Karuta.prefab
+- Assets/karuta a.prefab
+Dependencies:
+- "C:/VR\u4E0A\u6BDB\u304B\u308B\u305F\u6539/OVRAssetBundles/OVRMasterBundle/asset_controller0"
+- "C:/VR\u4E0A\u6BDB\u304B\u308B\u305F\u6539/OVRAssetBundles/OVRMasterBundle/asset_fbx0"
+- "C:/VR\u4E0A\u6BDB\u304B\u308B\u305F\u6539/OVRAssetBundles/OVRMasterBundle/asset_fbx1"
+- "C:/VR\u4E0A\u6BDB\u304B\u308B\u305F\u6539/OVRAssetBundles/OVRMasterBundle/asset_mat0"
