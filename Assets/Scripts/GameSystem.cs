@@ -11,10 +11,11 @@ using UnityEngine.SceneManagement;
 using Photon.Pun;
 using TMPro;
 
+
 public class GameSystem : MonoBehaviour
 {
     // 各自の取得枚数の表示用
-    [SerializeField] TMPro.TextMeshPro text;
+    [SerializeField] TextMeshPro text;
     [Serializable] private class AnswerEvent : UnityEvent<CancellationToken> { }
 
     // カルタのテクスチャを貼る前の札オブジェクト
@@ -30,13 +31,13 @@ public class GameSystem : MonoBehaviour
     KarutaSystem cardController;
     // 読み上げた累計枚数
     public int _count = 0;
-    // 自身の得点数
+    // 得点数
     public int Player1Point = 0;
-    // 自分の取得枚数
-    public int hudaCount1 = 0;
     public int Player2Point = 0;
+    // 取得枚数
+    public int hudaCount1 = 0;
     public int hudaCount2 = 0;
-    // 各プレイヤーが取得した札のリスト
+    // 取得した札のリスト
     Stack<KarutaHuda> _Player1List = new Stack<KarutaHuda>();
     Stack<KarutaHuda> _Player2List = new Stack<KarutaHuda>();
     GameObject karuta = null;
@@ -44,13 +45,13 @@ public class GameSystem : MonoBehaviour
     private bool jin;
     public static GameSystem instanceGameS = null;
 
-    [SerializeField]
-    private Text debugText = default;
-    [SerializeField]
-    private GameObject obj = default;
+    [SerializeField] private Text debugText = default;
 
-    [SerializeField]
-    private CPU cpu = default;
+    [SerializeField] private CPU cpu = default;
+
+    [SerializeField] private Effects effects = default;
+
+    private int waitTime = 0;
 
     private void Awake()
     {
@@ -113,6 +114,8 @@ public class GameSystem : MonoBehaviour
 
     public void GetPoint(Collider huda, bool player)
     {
+        waitTime = 3000;
+
         if (player == true)
         {
             if (IsCorrectCard(huda) == true)
@@ -125,6 +128,7 @@ public class GameSystem : MonoBehaviour
                 _Player1List.Push(huda.gameObject.GetComponent<KarutaHuda>());
                 text.text = _Player1List.Count + "枚";
                 cpu.PlayAnime("LosePose");
+                EffectCheck();
             }
             else
             {
@@ -154,6 +158,21 @@ public class GameSystem : MonoBehaviour
         Wait();
     }
 
+    // エフェクトを出すかどうかのチェック
+    private void EffectCheck()
+    {
+        waitTime = 6000;
+        StartCoroutine(effects.ShowEffect(Getkaruta_hudaID()));
+
+        // 「つ」を取った時
+        if (Getkaruta_hudaID() == 17)
+        {
+            Debug.Log("「つ」をゲット！");
+            waitTime = 6000;
+            StartCoroutine(effects.ShowEffect(Getkaruta_hudaID()));
+        }
+    }
+
     // 「つ」を2点分に置き換える処理
     private int PutPoint(int Id)
     {
@@ -175,7 +194,6 @@ public class GameSystem : MonoBehaviour
     // 最終的な勝敗判定
     private void PlayerPoint()
     {
-
         if (GivePoint() > 22)
         {
             SceneManager.LoadScene("WinScene");
@@ -186,7 +204,7 @@ public class GameSystem : MonoBehaviour
         }
     }
 
-    // 「つ」を2点分とした最終得点を返す
+    // 「つ」を2点分とした最終得点（プレイヤー側）を返す
     public int GivePoint()
     {
         //List<KarutaHuda> _Player1ListList = new List<KarutaHuda>();
@@ -231,9 +249,9 @@ public class GameSystem : MonoBehaviour
         return karuta_hudaID.hudaID;
     }
 
-    async void Wait()
+    private async void Wait()
     {
-        await Task.Delay(2000);
+        await Task.Delay(waitTime);
         SetAnswer();
     }
 }

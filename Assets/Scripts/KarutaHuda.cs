@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class KarutaHuda : MonoBehaviour
 {
-
     [SerializeField] private Material _material = null;
     [SerializeField] private Material _myMaterial = null;
     [SerializeField] private MeshRenderer _cubeA = null;
     [SerializeField] private int _hudaID = 0;
     [SerializeField] private bool _jin;
-    
-    private string soundCheck = null;
+    private string _soundCheck = null;
 
     public int hudaID 
     { 
@@ -53,13 +51,13 @@ public class KarutaHuda : MonoBehaviour
     }
     void SetSound(string soundPath)
     {
-        soundCheck = soundPath;
+        _soundCheck = soundPath;
  
     }
 
     public AudioClip Getsound()
     {
-        return Resources.Load<AudioClip>(soundCheck);
+        return Resources.Load<AudioClip>(_soundCheck);
     }
 
     public void Setjin(int maisuu)

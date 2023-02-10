@@ -7,13 +7,12 @@ using UnityEngine;
 
 public class CPU : MonoBehaviour
 {
-    [SerializeField] GameSystem gameSystem;
-    // [SerializeField] private Animator action = default;
-    public Animator action = default;
+    [SerializeField] private GameSystem gameSystem;
+    [SerializeField] private Animator action = default;
 
     private void Start()
     {
-        PlayAnime("InitPose");
+        // PlayAnime("InitPose");
     }
 
     public async void OnSetAnswerAsync(CancellationToken token)
@@ -25,10 +24,7 @@ public class CPU : MonoBehaviour
         {
             SoundEffectSystem.instance1.MakeSoundNoTouch();
             GetHuda();
-            // action.Play("WinPose", 0, 0);
         }
-
-        
     }
 
     private void GetHuda()

@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "1WMHHB65512172",
         "name": "com.DefaultCompany.VR",
-        "processId": 26573,
+        "processId": 27725,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -11,271 +11,145 @@
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.DefaultCompany.VR",
-            "processId": 21841,
-            "exited": true
-        },
-        {
-            "deviceId": "1WMHHB65512172",
-            "name": "com.oculus.shellenv",
-            "processId": 31566,
+            "processId": 15297,
             "exited": true
         },
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.DefaultCompany.VR",
-            "processId": 12563,
+            "processId": 15719,
+            "exited": true
+        },
+        {
+            "deviceId": "1WMHHB65512172",
+            "name": "com.DefaultCompany.VR",
+            "processId": 16522,
+            "exited": true
+        },
+        {
+            "deviceId": "1WMHHB65512172",
+            "name": "com.DefaultCompany.VR",
+            "processId": 31756,
             "exited": true
         },
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.oculus.os.vrusb",
-            "processId": 2038,
+            "processId": 17587,
             "exited": false
         },
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.oculus.shellenv",
-            "processId": 17579,
+            "processId": 4298,
             "exited": false
         },
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.DefaultCompany.VR",
-            "processId": 19366,
+            "processId": 19169,
             "exited": false
         },
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.DefaultCompany.VR",
-            "processId": 19846,
+            "processId": 19419,
             "exited": false
         },
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.DefaultCompany.VR",
-            "processId": 21951,
+            "processId": 19807,
             "exited": false
         },
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.DefaultCompany.VR",
-            "processId": 22649,
+            "processId": 20626,
             "exited": false
         },
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.DefaultCompany.VR",
-            "processId": 23026,
+            "processId": 21160,
             "exited": false
         },
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.DefaultCompany.VR",
-            "processId": 23344,
+            "processId": 21839,
             "exited": false
         },
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.DefaultCompany.VR",
-            "processId": 24154,
+            "processId": 22282,
             "exited": false
         },
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.DefaultCompany.VR",
-            "processId": 24801,
+            "processId": 22983,
             "exited": false
         },
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.DefaultCompany.VR",
-            "processId": 25500,
+            "processId": 23483,
             "exited": false
         },
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.DefaultCompany.VR",
-            "processId": 26129,
+            "processId": 23755,
             "exited": false
         },
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.DefaultCompany.VR",
-            "processId": 27284,
+            "processId": 24036,
             "exited": false
         },
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.DefaultCompany.VR",
-            "processId": 29265,
+            "processId": 24436,
             "exited": false
         },
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.DefaultCompany.VR",
-            "processId": 30360,
+            "processId": 25487,
             "exited": false
         },
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.DefaultCompany.VR",
-            "processId": 30992,
+            "processId": 26179,
             "exited": false
         },
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.DefaultCompany.VR",
-            "processId": 31882,
+            "processId": 26531,
             "exited": false
         },
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.DefaultCompany.VR",
-            "processId": 1240,
+            "processId": 26831,
             "exited": false
         },
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.DefaultCompany.VR",
-            "processId": 1992,
+            "processId": 27245,
             "exited": false
         },
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.DefaultCompany.VR",
-            "processId": 2497,
-            "exited": false
-        },
-        {
-            "deviceId": "1WMHHB65512172",
-            "name": "com.DefaultCompany.VR",
-            "processId": 2992,
-            "exited": false
-        },
-        {
-            "deviceId": "1WMHHB65512172",
-            "name": "com.DefaultCompany.VR",
-            "processId": 3755,
-            "exited": false
-        },
-        {
-            "deviceId": "1WMHHB65512172",
-            "name": "com.DefaultCompany.VR",
-            "processId": 4252,
-            "exited": false
-        },
-        {
-            "deviceId": "1WMHHB65512172",
-            "name": "com.DefaultCompany.VR",
-            "processId": 5627,
-            "exited": false
-        },
-        {
-            "deviceId": "1WMHHB65512172",
-            "name": "com.DefaultCompany.VR",
-            "processId": 6673,
-            "exited": false
-        },
-        {
-            "deviceId": "1WMHHB65512172",
-            "name": "com.DefaultCompany.VR",
-            "processId": 8609,
-            "exited": false
-        },
-        {
-            "deviceId": "1WMHHB65512172",
-            "name": "com.DefaultCompany.VR",
-            "processId": 9628,
-            "exited": false
-        },
-        {
-            "deviceId": "1WMHHB65512172",
-            "name": "com.DefaultCompany.VR",
-            "processId": 9937,
-            "exited": false
-        },
-        {
-            "deviceId": "1WMHHB65512172",
-            "name": "com.DefaultCompany.VR",
-            "processId": 10598,
-            "exited": false
-        },
-        {
-            "deviceId": "1WMHHB65512172",
-            "name": "com.DefaultCompany.VR",
-            "processId": 11560,
-            "exited": false
-        },
-        {
-            "deviceId": "1WMHHB65512172",
-            "name": "com.DefaultCompany.VR",
-            "processId": 13820,
-            "exited": false
-        },
-        {
-            "deviceId": "1WMHHB65512172",
-            "name": "com.DefaultCompany.VR",
-            "processId": 14114,
-            "exited": false
-        },
-        {
-            "deviceId": "1WMHHB65512172",
-            "name": "com.DefaultCompany.VR",
-            "processId": 14723,
-            "exited": false
-        },
-        {
-            "deviceId": "1WMHHB65512172",
-            "name": "com.DefaultCompany.VR",
-            "processId": 15368,
-            "exited": false
-        },
-        {
-            "deviceId": "1WMHHB65512172",
-            "name": "com.DefaultCompany.VR",
-            "processId": 15819,
-            "exited": false
-        },
-        {
-            "deviceId": "1WMHHB65512172",
-            "name": "com.DefaultCompany.VR",
-            "processId": 16386,
-            "exited": false
-        },
-        {
-            "deviceId": "1WMHHB65512172",
-            "name": "com.DefaultCompany.VR",
-            "processId": 17908,
-            "exited": false
-        },
-        {
-            "deviceId": "1WMHHB65512172",
-            "name": "com.DefaultCompany.VR",
-            "processId": 24352,
-            "exited": false
-        },
-        {
-            "deviceId": "1WMHHB65512172",
-            "name": "com.DefaultCompany.VR",
-            "processId": 24697,
-            "exited": false
-        },
-        {
-            "deviceId": "1WMHHB65512172",
-            "name": "com.DefaultCompany.VR",
-            "processId": 25690,
-            "exited": false
-        },
-        {
-            "deviceId": "1WMHHB65512172",
-            "name": "com.DefaultCompany.VR",
-            "processId": 26218,
-            "exited": false
-        },
-        {
-            "deviceId": "1WMHHB65512172",
-            "name": "com.DefaultCompany.VR",
-            "processId": 26573,
+            "processId": 27725,
             "exited": false
         }
     ],
@@ -330,7 +204,7 @@
         "Behavior": 0
     },
     "m_FilterOptions": {
-        "m_Filter": "",
+        "m_Filter": "aa",
         "m_UseRegularExpressions": false,
         "m_MatchCase": false
     },
