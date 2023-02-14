@@ -1,0 +1,107 @@
+ManifestFileVersion: 0
+CRC: 2925822592
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 79685b8a1d31fdc8b4682b2e3ed0d67e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: f9bf3b8a91b723395e1d9740e3451bfc
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 20
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 81
+  Script: {instanceID: 0}
+- Class: 82
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 104
+  Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 688c905a22c7a3140a96890a345e98f7, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 7e933e81d3c20c74ea6fdc708a67e3a5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: cb7623a8f0b49cf4dbaa40aea4d4be64, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: aab4c587457d86f4ca80582f946785ad, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c46c2d2d5328d6947928d536297c9650, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 79b7e65854ace8f44b05c52c6e824354, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: df9f338034892c44ebb62d97894772f1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 674a40251fe8ad841b18517ac5209957, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5178bc8574ce2bf4388e787a2e2af326, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fd425c2d06f39bf4899d07c05d0f10eb, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9c6645560d7d64b4283ba9161f2ffda7, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: aed62bf3ae2456c408f247f96808ce96, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 53e6485e6a1c69e4a8131ad032fd7a57, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 13d5dfd8112ab3f48a30bf603f58f75b, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 128
+  Script: {instanceID: 0}
+- Class: 135
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+- Class: 157
+  Script: {instanceID: 0}
+- Class: 196
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Scenes/LoseScene.unity
+Dependencies:
+- "C:/VR\u4E0A\u6BDB\u304B\u308B\u305F\u6539/OVRAssetBundles/OVRMasterBundle/asset_asset0"
+- "C:/VR\u4E0A\u6BDB\u304B\u308B\u305F\u6539/OVRAssetBundles/OVRMasterBundle/asset_mat0"
+- "C:/VR\u4E0A\u6BDB\u304B\u308B\u305F\u6539/OVRAssetBundles/OVRMasterBundle/asset_prefab0"
+- "C:/VR\u4E0A\u6BDB\u304B\u308B\u305F\u6539/OVRAssetBundles/OVRMasterBundle/asset_resources"
