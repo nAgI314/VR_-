@@ -19,7 +19,7 @@ public class ScoreManager : MonoBehaviour
         //hudaCount2 = gameSystem.hudaCount2;
 
         //Text score_text = score_object.GetComponent<Text>();
-        text.text = "score:" + hudaCount1+ "“_";
+        text.text = "score:" + hudaCount1+ "æžš";
     }
 
         // Update is called once per frame

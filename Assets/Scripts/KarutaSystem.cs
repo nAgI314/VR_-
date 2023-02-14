@@ -13,10 +13,10 @@ public class KarutaSystem : MonoBehaviour
         List<Texture> _textureList = new List<Texture>();
         List<KarutaHuda> _KarutaList = new List<KarutaHuda>();
         List<int> _numberList = new List<int>();
-        int[] shortKarutaNumber = new int[6];
+        
     List<string> _voiceList = new List<string>();
-    //ª”’l‚ğæ‚èo‚·—p
-    
+    //ï¿½ï¿½ï¿½ï¿½ï¿½lï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½p
+    Texture Correct =null;
    
 
     KarutaHuda _KarutaHudaPrehub = null;
@@ -35,19 +35,14 @@ public class KarutaSystem : MonoBehaviour
             Random.InitState(seed);
         }
         instance = this;
-        if (SceneManager.GetActiveScene().name == "ShortVersionScene")//ƒVƒ‡[ƒgƒo[ƒWƒ‡ƒ“‚Ì
+        if (SceneManager.GetActiveScene().name == "ShortVersionScene")//ï¿½Vï¿½ï¿½ï¿½[ï¿½gï¿½oï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½Ìï¿½
         {
-            shortKarutaNumber[0] = 0;  //‚±‚±‚©‚çƒVƒ‡[ƒgƒo[ƒWƒ‡ƒ“‚ÌD‚Æ‰¹º‚Ì”z—ñ
-            shortKarutaNumber[1] = 1;
-            shortKarutaNumber[2] = 2;
-            shortKarutaNumber[3] = 3;
-            shortKarutaNumber[4] = 4;
-            shortKarutaNumber[5] = 17;
+            //ã‚·ãƒ§ãƒ¼ãƒˆãƒãƒ¼ã‚¸ãƒ§ãƒ³ã§ã¯hudaIdã‚’ï¼ï½ï¼•ã®ï¼–ã¤ã«ã—ã€ï¼ã‚’ã€Œã¤ã€ã®æœ­ã«å›ºå®šã™ã‚‹
             for (int i = 0; i < 6; i++)
             {
-                _textureList.Add(Resources.Load<Texture>(string.Format("Texture/ShortVersionKaruta/{0}", shortKarutaNumber[i])));
+                _textureList.Add(Resources.Load<Texture>(string.Format("Texture/ShortVersionKaruta/{0}", i)));
                 _numberList.Add(i);
-                _voiceList.Add(string.Format("Sound/ShortVersionKarutaSound/{0}", shortKarutaNumber[i]));
+                _voiceList.Add(string.Format("Sound/ShortVersionKarutaSound/{0}", i));
                 KarutaHuda newObj = GameObject.Instantiate<KarutaHuda>(_KarutaHudaPrehub);
                 newObj.SetHudaID(i);
 
@@ -55,7 +50,7 @@ public class KarutaSystem : MonoBehaviour
             }
             List<Texture> _textureListCopy = new List<Texture>(_textureList);
 
-            //ª‚Í³‰ğ‚ÌD‚ÌQÆ—p
+            //ï¿½ï¿½ï¿½Íï¿½ï¿½ï¿½ï¿½ÌDï¿½ÌQï¿½Æ—p
             for (int i = _textureList.Count - 1; i > 0; i--)
             {
                 var j = Random.Range(0, i + 1);
@@ -67,7 +62,7 @@ public class KarutaSystem : MonoBehaviour
                 _voiceList[i] = _voiceList[j];
                 _voiceList[j] = voiceTemp;
             }
-            //ªƒVƒƒƒbƒtƒ‹
+            //ï¿½ï¿½ï¿½Vï¿½ï¿½ï¿½bï¿½tï¿½ï¿½
 
 
             float x = 2.2f;
@@ -78,7 +73,7 @@ public class KarutaSystem : MonoBehaviour
                 _KarutaList[maisuu].transform.localPosition = new Vector3(x, 0f, z);
                 _KarutaList[maisuu].name = maisuu.ToString();
 
-                _KarutaList[maisuu].Setjin(maisuu);
+                _KarutaList[maisuu].Setjin(maisuu,6);
 
                 x += 0.1f;
                 if (maisuu == 2)
@@ -117,12 +112,14 @@ public class KarutaSystem : MonoBehaviour
 
             for (int maisuu = 0; maisuu <= 5; maisuu++)
             {
-                Texture Correct = _textureListCopy[_numberList[maisuu]];
+          
+                Correct = _textureListCopy[_numberList[maisuu]];
                 //Debug.Log(_numberList[maisuu]);
                 Debug.Log(_KarutaList[_numberList[maisuu]]);
-            }
+               }
+            
         }
-        else{//•’Ê‚ÌƒV[ƒ“‚Ì
+        else{//ï¿½ï¿½ï¿½Ê‚ÌƒVï¿½[ï¿½ï¿½ï¿½Ìï¿½
             for (int i = 0; i < 44; i++)
             {
                 _textureList.Add(Resources.Load<Texture>(string.Format("Texture/clearKaruta/{0}", i)));
@@ -135,7 +132,7 @@ public class KarutaSystem : MonoBehaviour
             }
             List<Texture> _textureListCopy = new List<Texture>(_textureList);
 
-            //ª‚Í³‰ğ‚ÌD‚ÌQÆ—p
+            //ï¿½ï¿½ï¿½Íï¿½ï¿½ï¿½ï¿½ÌDï¿½ÌQï¿½Æ—p
             for (int i = _textureList.Count - 1; i > 0; i--)
             {
                 var j = Random.Range(0, i + 1);
@@ -147,7 +144,7 @@ public class KarutaSystem : MonoBehaviour
                 _voiceList[i] = _voiceList[j];
                 _voiceList[j] = voiceTemp;
             }
-            //ªƒVƒƒƒbƒtƒ‹
+            //ï¿½ï¿½ï¿½Vï¿½ï¿½ï¿½bï¿½tï¿½ï¿½
 
 
             float x = 2;
@@ -158,7 +155,7 @@ public class KarutaSystem : MonoBehaviour
                 _KarutaList[maisuu].transform.localPosition = new Vector3(x, 0f, z);
                 _KarutaList[maisuu].name = maisuu.ToString();
 
-                _KarutaList[maisuu].Setjin(maisuu);
+                _KarutaList[maisuu].Setjin(maisuu,44);
 
                 x += 0.1f;
                 if (maisuu == 7)
@@ -221,20 +218,21 @@ public class KarutaSystem : MonoBehaviour
                 //Debug.Log(_numberList[maisuu]);
                 Debug.Log(_KarutaList[_numberList[maisuu]]);
             }
-
-
         }
+
+
     }
+    
 
         // Update is called once per frame
-        void Update()
-        {
-        }
-        public Texture GetTexture(int hudaID)
-        {
-            return _textureList[hudaID];
+    void Update()
+    {
 
-        }
+    }
+    public Texture GetTexture(int hudaID)
+    {
+        return _textureList[hudaID];
+    }
     public string GetSound(int hudaID)
     {
         return _voiceList[hudaID];
@@ -250,7 +248,12 @@ public class KarutaSystem : MonoBehaviour
         return _numberList;
         
     }
-
+    //public void LastCardChange()  æœ€å¾Œã«æœ­ã‚’æ¨ªã«ä¸¦ã¹ã‚‹å‡¦ç†
+    //{
+    //        GameSystem.instanceGameS.Getanswer().transform.position=new Vector3(2.22f,0,200f/630f);
+    //        _KarutaList [_numberList[43]].gameObject=new Vector3(2.38f,0,200f/630f);
+    //} 
+    
 }
 
         

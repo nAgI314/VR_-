@@ -64,9 +64,9 @@ public class KarutaHuda : MonoBehaviour
     {
         return Resources.Load<AudioClip>(soundCheck);
     }
-    public void Setjin(int maisuu)
+    public void Setjin(int maisuu,int hudaAmountjin)
     {
-        if (maisuu > 22)
+        if (maisuu >= hudaAmountjin/2)
         {
             jin = true;
         }

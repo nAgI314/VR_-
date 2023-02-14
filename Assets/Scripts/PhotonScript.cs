@@ -17,19 +17,19 @@ public class MyPUN_Set : MonoBehaviourPunCallbacks
 
     void Start()
     {
-        //PhotonServerSettings‚ÉÝ’è‚µ‚½“à—e‚ðŽg‚Á‚Äƒ}ƒXƒ^[ƒT[ƒo[‚ÖÚ‘±‚·‚é
+        //PhotonServerSettingsï¿½ÉÝ’è‚µï¿½ï¿½ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Äƒ}ï¿½Xï¿½^ï¿½[ï¿½Tï¿½[ï¿½oï¿½[ï¿½ÖÚ‘ï¿½ï¿½ï¿½ï¿½ï¿½
         PhotonNetwork.ConnectUsingSettings();
     }
 
-    //ƒ}ƒXƒ^[ƒT[ƒo[‚Ö‚ÌÚ‘±‚ª¬Œ÷‚µ‚½Žž‚ÉŒÄ‚Î‚ê‚éƒR[ƒ‹ƒoƒbƒN
+    //ï¿½}ï¿½Xï¿½^ï¿½[ï¿½Tï¿½[ï¿½oï¿½[ï¿½Ö‚ÌÚ‘ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÉŒÄ‚Î‚ï¿½ï¿½Rï¿½[ï¿½ï¿½ï¿½oï¿½bï¿½N
     public override void OnConnectedToMaster()
     {
-        // "OnoTest"‚Æ‚¢‚¤–¼‘O‚Ìƒ‹[ƒ€‚ÉŽQ‰Á‚·‚éiƒ‹[ƒ€‚ª–³‚¯‚ê‚Îì¬‚µ‚Ä‚©‚çŽQ‰Á‚·‚éj
+        // "OnoTest"ï¿½Æ‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½Ìƒï¿½ï¿½[ï¿½ï¿½ï¿½ÉŽQï¿½ï¿½ï¿½ï¿½ï¿½ï¿½iï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îì¬ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Qï¿½ï¿½ï¿½ï¿½ï¿½ï¿½j
         PhotonNetwork.JoinOrCreateRoom("OnoTest", new RoomOptions(), TypedLobby.Default);
-        //print("ƒ‹[ƒ€ì¬Š®—¹");
+        //print("ï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ì¬ï¿½ï¿½ï¿½ï¿½");
     }
 
-    //•”‰®‚É“ü‚Á‚½‚çƒAƒoƒ^[¶¬
+    //ï¿½ï¿½ï¿½ï¿½ï¿½É“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½oï¿½^ï¿½[ï¿½ï¿½ï¿½ï¿½
     public override void OnJoinedRoom()
     {
         int othersCount = PhotonNetwork.PlayerListOthers.Length;

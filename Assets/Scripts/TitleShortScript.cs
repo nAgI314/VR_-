@@ -15,31 +15,35 @@ public class TitleShortScript : MonoBehaviour
         audio = GetComponent<AudioSource>();
         audio.Play();
         FadeOut.fadeOut.Fadeout();
-        Invoke("LoadShortVersionScene", 1f);
+        BotuPhotonScript.botuPhotonScript.Event.AddListener(()=>{ Invoke("LoadShortVersionScene", 1f); });
+        //BotuPhotonScript.botuPhotonScript.YetEvent.AddListener(()=>{( ); });
+        BotuPhotonScript.botuPhotonScript.Ready();
+
+        //Invoke("LoadShortVersionScene", 1f);
         //StartCoroutine(Checking (() =>
-        //{
-        //text.text = "tag";
-    }    
-        void LoadShortVersionScene()
-        {
-            SceneManager.LoadScene("ShortVersionScene");
-        }
+        // {
+
+    }
+    void LoadShortVersionScene()
+    {    //text.text = "tag";
+        SceneManager.LoadScene("ShortVersionScene");
+    }
         //}));
     //}
     //public delegate void functionType();
     //private IEnumerator Checking (functionType callback)
-   // {
-     //   while (true)
+    //{
+      //  while (true)
        // {
          //   yield return new WaitForFixedUpdate();
            // if (!audio.isPlaying)
             //{
               //  callback();
-              // break;
+                //break;
            // }
-      // }
-  }
+       // }
+   // }
         
        
     
-
+}

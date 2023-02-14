@@ -32,7 +32,7 @@ public class CommunicationScript : MonoBehaviourPunCallbacks
         
     }
     /// <summary>
-    /// “Ç‚İD‚ª“Ç‚İã‚°‚ç‚ê‚½‚Æ‚«‚ÉŒÄ‚Ño‚³‚ê‚éŠÖ”
+    /// èª­ã¿æœ­ãŒèª­ã¿ä¸Šã’ã‚‰ã‚ŒãŸã¨ãã«å‘¼ã³å‡ºã•ã‚Œã‚‹é–¢æ•°
     /// </summary>
     /// <param name="cancellationToken"></param>
     public void OnStartReading(CancellationToken cancellationToken)
@@ -48,7 +48,7 @@ public class CommunicationScript : MonoBehaviourPunCallbacks
         //gotWrongCardByOpponent = false;
     }
     /// <summary>
-    /// ƒJ[ƒh‚ğƒ^ƒbƒ`‚µ‚½‚Æ‚«‚ÉŒÄ‚Ño‚³‚ê‚éŠÖ”
+    /// ã‚«ãƒ¼ãƒ‰ã‚’ã‚¿ãƒƒãƒã—ãŸã¨ãã«å‘¼ã³å‡ºã•ã‚Œã‚‹é–¢æ•°
     /// </summary>
     /// <param name="collider"></param>
     /// <param name="player"></param>
@@ -56,7 +56,7 @@ public class CommunicationScript : MonoBehaviourPunCallbacks
     {
         
         
-        //³‰ğ‚ğæ‚Á‚½‚©‚Ì”»’è
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì”ï¿½ï¿½ï¿½
         if (GameSystem.instanceGameS.IsCorrectCard(collider)==true)
         {
             gotCard = true;
@@ -68,13 +68,13 @@ public class CommunicationScript : MonoBehaviourPunCallbacks
         else
         {
             //gotWrongCard = false;
-            //‚±‚±‚Í•sˆÀ
+            //ï¿½ï¿½ï¿½ï¿½ï¿½Í•sï¿½ï¿½
             photonView.RPC(nameof(GotWrongCard), RpcTarget.AllViaServer, correctCardID,PhotonNetwork.IsMasterClient );
 
         }
     }
     /// <summary>
-    /// ƒJ[ƒh‚ğ‚Æ‚Á‚½‘¤‚ªŒˆ‚Ü‚Á‚½‚ÉŒÄ‚Ño‚·
+    /// ã‚«ãƒ¼ãƒ‰ã‚’ã¨ã£ãŸå´ãŒæ±ºã¾ã£ãŸæ™‚ã«å‘¼ã³å‡ºã™
     /// </summary>
     private void DecidedWhoGetCard()
     {
@@ -86,13 +86,13 @@ public class CommunicationScript : MonoBehaviourPunCallbacks
         }
     }
     /// <summary>
-    /// ‘Šè‚ª³‰ğ‚ğæ‚Á‚½
+    /// ç›¸æ‰‹ãŒæ­£è§£ã‚’ã¨ã£ãŸ
     /// </summary>
     /// <param name="cardID"></param>
     /// <param name="time"></param>
     [PunRPC]
     private void TakenCardByOpponent(int cardID,int time)
-    {//‚ ‚¢‚Ä‚ª³‰ğ‚ğæ‚Á‚½
+    {//ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if (cardID == correctCardID)
         {
             timeTookToGotByOpponent = time;

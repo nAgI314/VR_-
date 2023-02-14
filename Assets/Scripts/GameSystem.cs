@@ -65,11 +65,16 @@ public class GameSystem : MonoBehaviour
     }
     public void SetAnswer()
     {
-        if (SceneManager.GetActiveScene().name == "ShortVersionScene")//ƒVƒ‡[ƒgƒo[ƒWƒ‡ƒ“‚Ì
+        if (SceneManager.GetActiveScene().name == "ShortVersionScene")//ï¿½Vï¿½ï¿½ï¿½[ï¿½gï¿½oï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½Ìï¿½
         {
             hudaAmount = 6;
         } 
-            if (_count == hudaAmount)
+        //if(_count==42)  æœ€å¾Œã«æœ­ã‚’æ¨ªã«ä¸¦ã¹ã‚‹å‡¦ç†
+        //{
+        //   cardController.LastCardChange();
+        //}
+
+        if (_count == hudaAmount)
         {
             PlayerPoint();
         }
@@ -78,17 +83,17 @@ public class GameSystem : MonoBehaviour
 
         List<KarutaHuda> karutaEhuda = cardController.GetKarutaList();
         List<int> shuffleNumber = cardController.GetnumberList();
+        
         jin = karutaEhuda[shuffleNumber[_count]].Jin;
+        
         for (int i = 0; i < karutaEhuda.Count; i++)
         {
             karutaEhuda[i].gameObject.GetComponent<BoxCollider>().enabled = karutaEhuda[i].Jin != jin;
         }
-        
+       
         karuta = karutaEhuda[shuffleNumber[_count]].gameObject;
         karuta_hudaID = karutaEhuda[shuffleNumber[_count]];
         audioSource.PlayOneShot( karuta.GetComponent<KarutaHuda>().Getsound());
-
-        
 
         BoxCollider boxCollider = karuta.GetComponent<BoxCollider>();
         boxCollider.enabled = true;
@@ -115,7 +120,7 @@ public class GameSystem : MonoBehaviour
                 //Player1Point = Player1Point + PutPoint(huda.gameObject.GetComponent<KarutaHuda>().hudaID);
                 hudaCount1++;
                 _Player1List.Push(huda.gameObject.GetComponent<KarutaHuda>());
-                text.text = _Player1List.Count+"–‡";
+                text.text = _Player1List.Count+"æš";
 
             }
             else
@@ -126,7 +131,7 @@ public class GameSystem : MonoBehaviour
                 {
 
                     _Player2List.Push(_Player1List.Pop());
-                    text.text = _Player1List.Count + "–‡";
+                    text.text = _Player1List.Count + "æš";
 
                 }
                 return;
@@ -147,13 +152,27 @@ public class GameSystem : MonoBehaviour
     }
     private int PutPoint(int Id)
     {
-        if (Id == 17)
+        if(SceneManager.GetActiveScene().name == "ShortVersionScene")
         {
-            return 2;
+            if(Id==0)
+            {
+                return 2;
+            }
+            else
+            {
+                return 1;
+            }
         }
         else
         {
-            return 1;
+            if (Id == 17)
+            {
+                return 2;
+            }
+            else
+            {
+                 return 1;
+            }
         }
     }
     public GameObject Getanswer()
@@ -192,7 +211,7 @@ public class GameSystem : MonoBehaviour
     {
         return huda.gameObject.GetComponent<KarutaHuda>().Jin == jin;
     }
-    public void DisableAllColliders()//‘S•”‚Ìcollider‚ğoff‚É‚·‚é
+    public void DisableAllColliders()//ï¿½Sï¿½ï¿½ï¿½ï¿½colliderï¿½ï¿½offï¿½É‚ï¿½ï¿½ï¿½
     {
         for (int i = 0; i < cardController.GetKarutaList().Count; i++)
         {
@@ -203,7 +222,7 @@ public class GameSystem : MonoBehaviour
     {
         if (isMyself == true)
         {
-            //‚¨è•t‚«ˆ—‚ª‚Å‚«‚Ä‚È‚¢
+            //ï¿½ï¿½ï¿½ï¿½tï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å‚ï¿½ï¿½Ä‚È‚ï¿½
             MissEvent.Invoke();
             SoundEffectSystem.instance1.MakeSoundNoTouch();
         }
@@ -218,8 +237,10 @@ public class GameSystem : MonoBehaviour
     }
     async void Wait()
     {
+        
         await Task.Delay(1500);
         SetAnswer();
     }
+    
 }
 
