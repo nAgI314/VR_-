@@ -1853,6 +1853,8 @@ MonoBehaviour:
   hudaCount1: 0
   Player2Point: 0
   hudaCount2: 0
+  turu_flag: 0
+  karutaCount: 0
 --- !u!114 &921669674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1866,6 +1868,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSystem: {fileID: 921669673}
+  waittime: 1000
 --- !u!114 &921669675
 MonoBehaviour:
   m_ObjectHideFlags: 0

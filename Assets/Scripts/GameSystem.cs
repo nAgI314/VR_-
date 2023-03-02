@@ -23,9 +23,9 @@ public class GameSystem : MonoBehaviour
     CancellationTokenSource cancellationTokenSource;
     KarutaSystem cardController;
     public int _count = 0;
-    public int Player1Point = 0;
+    public float Player1Point = 0;
     public int hudaCount1 = 0;
-    public int Player2Point = 0;
+    public float Player2Point = 0;
     public int hudaCount2 = 0;
     public bool turu_flag = false;
     Stack<KarutaHuda> _Player1List = new Stack<KarutaHuda>();
@@ -35,6 +35,7 @@ public class GameSystem : MonoBehaviour
     bool jin;
     public static GameSystem instanceGameS = null;
     int hudaAmount = 44;
+    public int karutaCount;
 
     private void Awake()
     {
@@ -66,14 +67,14 @@ public class GameSystem : MonoBehaviour
     }
     public void SetAnswer()
     {
+        List<KarutaHuda> karutaEhuda = cardController.GetKarutaList();
+        List<int> shuffleNumber = cardController.GetnumberList();
+
         if (SceneManager.GetActiveScene().name == "ShortVersionScene")//�V���[�g�o�[�W�����̎�
         {
             hudaAmount = 6;
         } 
-        //if(_count==42)  最後に札を横に並べる処理
-        //{
-        //   cardController.LastCardChange();
-        //}
+        
 
         if (_count == hudaAmount)
         {
@@ -82,8 +83,7 @@ public class GameSystem : MonoBehaviour
 
         cancellationTokenSource = new CancellationTokenSource();
 
-        List<KarutaHuda> karutaEhuda = cardController.GetKarutaList();
-        List<int> shuffleNumber = cardController.GetnumberList();
+        
         
         jin = karutaEhuda[shuffleNumber[_count]].Jin;
         
@@ -151,7 +151,7 @@ public class GameSystem : MonoBehaviour
 
         Wait();
     }
-    private int PutPoint(int Id)
+    private float PutPoint(int Id)
     {
         if(SceneManager.GetActiveScene().name == "ShortVersionScene")
         {
@@ -161,7 +161,7 @@ public class GameSystem : MonoBehaviour
         {
             if (Id == 17)
             {
-                return 2;
+                return 1.5f;
             }
             else
             {
@@ -176,7 +176,7 @@ public class GameSystem : MonoBehaviour
 
     private void PlayerPoint() 
     {
-        int MyPoint = GivePoint();
+        float MyPoint = GivePoint();
         if(MyPoint == hudaAmount/2)
         {   
             //Debug.Log(_Player1List);
@@ -192,6 +192,7 @@ public class GameSystem : MonoBehaviour
             
             
             for(int i=0;i<_Player1List.Count;i++){
+                karutaCount=_Player1List.Count;
                 var karuta_now = _Player1List.Pop();
 
                 if(karuta_now.HudaID==0){
@@ -214,7 +215,7 @@ public class GameSystem : MonoBehaviour
             SceneManager.LoadScene("LoseScene");
         }
     }
-    public int GivePoint()
+    public float GivePoint()
     {
         //List<KarutaHuda> _Player1ListList = new List<KarutaHuda>();
         //for (int i=1;i <= _Player1List.Count; i++)
@@ -260,6 +261,11 @@ public class GameSystem : MonoBehaviour
 
     async void Wait()
     {      
+        if(_count==42)  //最後に札を横に並べる処理
+        {
+           cardController.LastCardChange(cardController.GetKarutaList()[cardController.GetnumberList()[_count]].gameObject,cardController.GetKarutaList()[cardController.GetnumberList()[_count+1]].gameObject);
+          
+        }
         await Task.Delay(1500);
         SetAnswer();
     }

@@ -13,8 +13,8 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
 
-        int hudaCount1;
-        hudaCount1 = GameSystem.instanceGameS.Player1Point;
+        float hudaCount1;
+        hudaCount1 = GameSystem.instanceGameS.karutaCount;
         //int hudaCount2;
         //hudaCount2 = gameSystem.hudaCount2;
 

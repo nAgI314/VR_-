@@ -250,11 +250,14 @@ public class KarutaSystem : MonoBehaviour
         return _numberList;
         
     }
-    //public void LastCardChange()  最後に札を横に並べる処理
-    //{
-    //        GameSystem.instanceGameS.Getanswer().transform.position=new Vector3(2.22f,0,200f/630f);
-    //        _KarutaList [_numberList[43]].gameObject=new Vector3(2.38f,0,200f/630f);
-    //} 
+    
+    public void LastCardChange(GameObject karuta43,GameObject karuta44)  //最後に札を横に並べる処理
+    {
+            karuta43.transform.position=new Vector3(2.22f,0,200f/630f);
+            karuta43.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            karuta44.transform.position=new Vector3(2.38f,0,200f/630f);
+            karuta44.transform.localRotation = Quaternion.Euler(0, 180, 0);
+    } 
     
 }
 
