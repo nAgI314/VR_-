@@ -229,10 +229,12 @@ public class KarutaSystem : MonoBehaviour
     {
 
     }
+    
     public Texture GetTexture(int hudaID)
     {
         return _textureList[hudaID];
     }
+    
     public string GetSound(int hudaID)
     {
         return _voiceList[hudaID];

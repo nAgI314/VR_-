@@ -10,7 +10,7 @@ public class CPU : MonoBehaviour
     [SerializeField] GameSystem gameSystem;
     public async void OnSetAnswerAsync(CancellationToken token)
     {
-        await Task.Delay(6000, token);
+        await Task.Delay(4000, token);
         if (token.IsCancellationRequested == false)
         {
             SoundEffectSystem.instance1.MakeSoundNoTouch();

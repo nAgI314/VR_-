@@ -14,8 +14,10 @@ public class KarutaHuda : MonoBehaviour
 
     [SerializeField] bool jin;
     private string soundCheck = null;
-    public int hudaID  { get; set; }
+    //public int hudaID{get;set;} 
+    public int HudaID => _hudaID;
     public bool Jin
+
     {
         get { return jin; }
     }

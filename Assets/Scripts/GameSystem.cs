@@ -19,7 +19,7 @@ public class GameSystem : MonoBehaviour
     [SerializeField] AudioSource audioSource = null;
 
     [SerializeField] private UnityEvent MissEvent = new UnityEvent();
-    [SerializeField]private AnswerEvent setAnswerEvent = new AnswerEvent();
+    [SerializeField] private AnswerEvent setAnswerEvent = new AnswerEvent();
     CancellationTokenSource cancellationTokenSource;
     KarutaSystem cardController;
     public int _count = 0;
@@ -27,6 +27,7 @@ public class GameSystem : MonoBehaviour
     public int hudaCount1 = 0;
     public int Player2Point = 0;
     public int hudaCount2 = 0;
+    public bool turu_flag = false;
     Stack<KarutaHuda> _Player1List = new Stack<KarutaHuda>();
     Stack<KarutaHuda> _Player2List = new Stack<KarutaHuda>();
     GameObject karuta=null;
@@ -154,14 +155,7 @@ public class GameSystem : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name == "ShortVersionScene")
         {
-            if(Id==0)
-            {
-                return 2;
-            }
-            else
-            {
                 return 1;
-            }
         }
         else
         {
@@ -182,8 +176,36 @@ public class GameSystem : MonoBehaviour
 
     private void PlayerPoint() 
     {
-        
-        if (GivePoint() > hudaAmount/2)
+        int MyPoint = GivePoint();
+        if(MyPoint == hudaAmount/2)
+        {   
+            //Debug.Log(_Player1List);
+            //foreach(var karuta_now in _Player1List)Debug.Log($"id:{karuta_now.hudaID}");
+            /*foreach(var karuta_now in _Player1List){
+                
+                if(karuta_now.hudaID==0){
+                    
+                    SceneManager.LoadScene("WinScene");
+                    return;
+                }
+            }*/
+            
+            
+            for(int i=0;i<_Player1List.Count;i++){
+                var karuta_now = _Player1List.Pop();
+
+                if(karuta_now.HudaID==0){
+                    
+                    //Debug.Log($"id:{karuta_now.hudaID}");
+                    
+                    SceneManager.LoadScene("WinScene");
+                    return;
+                } 
+            }
+            SceneManager.LoadScene("LoseScene");
+
+        }
+        else if (MyPoint > hudaAmount/2)
         {
             SceneManager.LoadScene("WinScene");
         }
@@ -202,15 +224,17 @@ public class GameSystem : MonoBehaviour
         //}
         for (int i=0;i< _Player1List.Count; i++)
         {
-            Player1Point = Player1Point + PutPoint(_Player1List.ToArray()[i].hudaID);
+            Player1Point = Player1Point + PutPoint(_Player1List.ToArray()[i].HudaID);
 
         }
         return Player1Point;
     }
+
     public bool IsCorrectCard(Collider huda)
     {
         return huda.gameObject.GetComponent<KarutaHuda>().Jin == jin;
     }
+
     public void DisableAllColliders()//�S����collider��off�ɂ���
     {
         for (int i = 0; i < cardController.GetKarutaList().Count; i++)
@@ -226,18 +250,16 @@ public class GameSystem : MonoBehaviour
             MissEvent.Invoke();
             SoundEffectSystem.instance1.MakeSoundNoTouch();
         }
-        
-       
-
-        
     }
+
     public int Getkaruta_hudaID()
     {
-        return karuta_hudaID.hudaID;
+        Debug.Log($"hudaID:{karuta_hudaID.HudaID}");
+          return karuta_hudaID.HudaID;
     }
+
     async void Wait()
-    {
-        
+    {      
         await Task.Delay(1500);
         SetAnswer();
     }
