@@ -15,9 +15,9 @@ public class TitleShortScript : MonoBehaviour
         audio = GetComponent<AudioSource>();
         audio.Play();
         FadeOut.fadeOut.Fadeout();
-        BotuPhotonScript.botuPhotonScript.Event.AddListener(()=>{ Invoke("LoadShortVersionScene", 1f); });
+        Invoke("LoadShortVersionScene", 1f);
         //BotuPhotonScript.botuPhotonScript.YetEvent.AddListener(()=>{( ); });
-        BotuPhotonScript.botuPhotonScript.Ready();
+        
 
         //Invoke("LoadShortVersionScene", 1f);
         //StartCoroutine(Checking (() =>

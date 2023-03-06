@@ -65,7 +65,7 @@ public class KarutaSystem : MonoBehaviour
             //���V���b�t��
 
 
-            float x = 2.2f;
+            float x = 2.1f;
             float z = 152f / 630f;
 
             for (int maisuu = 0; maisuu <= 5; maisuu++)
@@ -75,11 +75,11 @@ public class KarutaSystem : MonoBehaviour
 
                 _KarutaList[maisuu].Setjin(maisuu,6);
 
-                x += 0.1f;
+                x += 0.2f;
                 if (maisuu == 2)
                 {
-                    x = 2.2f;
-                    z = 248f / 630f;
+                    x = 2.1f;
+                    z = 300f / 630f;
 
                 }
                 else

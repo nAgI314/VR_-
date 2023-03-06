@@ -7,8 +7,20 @@ using UnityEngine;
 
 public class CPU : MonoBehaviour
 {
+    
     [SerializeField] GameSystem gameSystem;
     [SerializeField] int waittime=6000;
+    private GameObject DifficultLevel_obj;
+    private DifficultLevel difficultLevel;
+    
+    
+    void Start()
+    {
+        DifficultLevel_obj = GameObject.Find("LevelDecide");
+        difficultLevel = DifficultLevel_obj.GetComponent<DifficultLevel>();
+        waittime=DifficultLevel.howDifficultLevel;
+    }
+    
     public async void OnSetAnswerAsync(CancellationToken token)
     {
         await Task.Delay(waittime, token);

@@ -13,6 +13,7 @@ public class OVRInputTest : MonoBehaviour
     OVRInputTest eventController;
     //public UnityEvent<GameObject> touchEvent = new UnityEvent<GameObject>();
     [SerializeField] private TouchEvent touchEvent = new TouchEvent();
+    [SerializeField] private float wetherTriggerDown=0.5f;
 
     public KarutaSystem KarutaSystem;
     public GameSystem GameSystem;
@@ -38,19 +39,23 @@ public class OVRInputTest : MonoBehaviour
 
     void Update()
     {
-        float value = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger,m_controller);
+        
+            float value = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger,m_controller);
 
-        // ’l‚ª0‚Å‚È‚¯‚ê‚ÎAƒRƒ“ƒgƒ[ƒ‰[‚ÌTrigger‚ª‰Ÿ‚³‚ê‚Ä‚¢‚é
-        if (value > 0.5)
-        {
-            isTriggerDown = true;
+            // ï¿½lï¿½ï¿½0ï¿½Å‚È‚ï¿½ï¿½ï¿½ÎAï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½[ï¿½ï¿½Triggerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
+        
+            if (value > wetherTriggerDown)
+            {
+                isTriggerDown = true;
             
-        }
-        else
-        {
-            isTriggerDown = false;
+            }
+            else
+            {
+                isTriggerDown = false;
             
-        }
+            }
+        
+        
         if (miss == true)
         {
             timer += Time.deltaTime;
@@ -65,26 +70,26 @@ public class OVRInputTest : MonoBehaviour
 
 
 
-    /** •Ê‚ÌCollider(other)‚ÉG‚ê‚Ä‚¢‚éŠÔÀs **/
+    /** ï¿½Ê‚ï¿½Collider(other)ï¿½ÉGï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Ôï¿½ï¿½s **/
    
     public void OnTriggerEnter(Collider other)
     {
 
 
         
-        // ƒRƒ“ƒgƒ[ƒ‰[‚ÌTrigger‚ª‰Ÿ‚³‚ê‚Ä‚¨‚èA‘ÎÛ‚ªƒvƒŒƒCƒ„[©g‚Å‚È‚¢
+        // ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½[ï¿½ï¿½Triggerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Aï¿½ÎÛ‚ï¿½ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½gï¿½Å‚È‚ï¿½
         if (isTriggerDown==true && other.tag != "Player"&&miss==false)
         {
             if (text != null)
             {
                 text.text = "tag:" + other.tag;
             }
-            //‚±‚±‚©‚ç©•ª‚Å‘Å‚Á‚½‚â‚Âi“_”‚¢‚ê‚½‚èj
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç©ï¿½ï¿½ï¿½Å‘Å‚ï¿½ï¿½ï¿½ï¿½ï¿½Âiï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½ï¿½j
 
             
             touchEvent.Invoke(other,true);
-            //‚±‚±‚Ü‚Å©•ª‚Å‘Å‚Á‚½‚â‚Â
-            // ƒRƒ“ƒgƒ[ƒ‰[‚Æ‚Â‚©‚ñ‚¾ƒIƒuƒWƒFƒNƒg‚Ìtransform‚ğ“¯Šú
+            //ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚Åï¿½ï¿½ï¿½ï¿½Å‘Å‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            // ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½[ï¿½Æ‚Â‚ï¿½ï¿½ñ‚¾ƒIï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½transformï¿½ğ“¯Šï¿½
 
             
         }

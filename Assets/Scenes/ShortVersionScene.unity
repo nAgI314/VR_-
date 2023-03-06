@@ -1356,9 +1356,9 @@ MonoBehaviour:
   touchEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 89328462}
-        m_TargetAssemblyTypeName: CommunicationScript, Assembly-CSharp
-        m_MethodName: OnTouchCard
+      - m_Target: {fileID: 921669673}
+        m_TargetAssemblyTypeName: GameSystem, Assembly-CSharp
+        m_MethodName: GetPoint
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1368,6 +1368,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  wetherTriggerDown: 0.5
   KarutaSystem: {fileID: 921669675}
   GameSystem: {fileID: 921669673}
   hudaCollider: {fileID: 0}
@@ -1791,6 +1792,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  wetherTriggerDown: 0.5
   KarutaSystem: {fileID: 921669675}
   GameSystem: {fileID: 921669673}
   hudaCollider: {fileID: 0}
@@ -2005,6 +2007,7 @@ MonoBehaviour:
   Player2Point: 0
   hudaCount2: 0
   turu_flag: 0
+  karutaCount: 0
 --- !u!114 &921669675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2030,6 +2033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSystem: {fileID: 921669673}
+  waittime: 2100
 --- !u!1 &1310282353 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 195418, guid: ba1fa4a8c66106b4988c88fe4b8e8502, type: 3}
@@ -2065,9 +2069,9 @@ MonoBehaviour:
   touchEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 89328462}
-        m_TargetAssemblyTypeName: CommunicationScript, Assembly-CSharp
-        m_MethodName: OnTouchCard
+      - m_Target: {fileID: 921669673}
+        m_TargetAssemblyTypeName: GameSystem, Assembly-CSharp
+        m_MethodName: GetPoint
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2077,6 +2081,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  wetherTriggerDown: 0.5
   KarutaSystem: {fileID: 921669675}
   GameSystem: {fileID: 921669673}
   hudaCollider: {fileID: 0}
@@ -3560,6 +3565,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  wetherTriggerDown: 0.5
   KarutaSystem: {fileID: 921669675}
   GameSystem: {fileID: 921669673}
   hudaCollider: {fileID: 0}
