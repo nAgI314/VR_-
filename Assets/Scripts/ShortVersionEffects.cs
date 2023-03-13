@@ -9,100 +9,137 @@ public class ShortVersionEffects : MonoBehaviour
 {
     [SerializeField]
     private GameObject[] objs = default;
-    private float waitTime = default;
-    private float afterImageFadeTime = 3.0f;
+
+    // debug
+    // public int n = 0;
 
     private void Start()
     {
-        StartCoroutine(Effect(4));
+        // debug
+        // StartCoroutine(ShowEffect(n));
     }
 
-    private void Update()
+    public IEnumerator ShowEffect(int num)
     {
+        objs[num].SetActive(true);
+        var beforeImage = objs[num].transform.Find("before").GetComponent<Image>();
+        var afterImage = objs[num].transform.Find("after").GetComponent<Image>();
 
-    }
+        // え（wait：6.2秒）
+        if (num == 0)
+        {
+            var darumaObj = objs[0].transform.Find("Daruma").gameObject;
 
-    private IEnumerator Effect(int num)
-    {
-        // す
+            beforeImage.DOFade(1f, 1f);
+            yield return new WaitForSeconds(3f);
+
+            darumaObj.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            darumaObj.transform.DOScale(new Vector3(800, 800, 800), 1f);
+            darumaObj.transform.DOLocalMoveZ(300, 1f);
+            yield return new WaitForSeconds(0.2f);
+
+            beforeImage.DOFade(0f, 1f);
+            afterImage.DOFade(1f, 1f);
+            darumaObj.SetActive(false);
+            yield return new WaitForSeconds(2f);
+            
+            afterImage.DOFade(0f, 1f);
+            yield return new WaitForSeconds(1f);
+        }
+
+        // す（wait：5秒）
         if (num == 1)
         {
-            var beforeImage = objs[0].transform.Find("before").GetComponent<Image>();
-            var afterImage = objs[0].transform.Find("after").GetComponent<Image>();
+            beforeImage.DOFade(1f, 1f);
+            yield return new WaitForSeconds(1f);
+            beforeImage.transform.DOScale(new Vector3(0, 0, 0), 1f);
+            yield return new WaitForSeconds(1f);
+            afterImage.transform.DOScale(new Vector3(1, 1, 1), 1f);
+            afterImage.DOFade(1f, 1f);
+            yield return new WaitForSeconds(2f);
 
-            waitTime = 1.0f;
-            beforeImage.DOFade(1f, waitTime);
-            yield return new WaitForSeconds(waitTime);
-            beforeImage.transform.DOScale(new Vector3(0, 0, 0), waitTime);
-            yield return new WaitForSeconds(waitTime);
-            afterImage.transform.DOScale(new Vector3(1, 1, 1), waitTime);
-            afterImage.DOFade(1f, waitTime);
-            yield return new WaitForSeconds(afterImageFadeTime);
-            afterImage.DOFade(0f, waitTime);
+            afterImage.DOFade(0f, 1f);
+            yield return new WaitForSeconds(1f);
+
         }
 
-        // た
+        // た（wait：5秒）
         if (num == 2)
         {
-            var beforeImage = objs[1].transform.Find("before").GetComponent<Image>();
-            var afterImage = objs[1].transform.Find("after").GetComponent<Image>();
+            beforeImage.DOFade(1f, 1f);
+            yield return new WaitForSeconds(1f);
+            beforeImage.transform.DOScale(new Vector3(0, 0, 0), 1f);
+            yield return new WaitForSeconds(1f);
+            afterImage.transform.DOScale(new Vector3(1, 1, 1), 1f);
+            afterImage.DOFade(1f, 1f);
+            yield return new WaitForSeconds(2f);
 
-            waitTime = 1.0f;
-            beforeImage.DOFade(1f, waitTime);
-            yield return new WaitForSeconds(waitTime);
-            beforeImage.transform.DOScale(new Vector3(0, 0, 0), waitTime);
-            yield return new WaitForSeconds(waitTime);
-            afterImage.transform.DOScale(new Vector3(1, 1, 1), waitTime);
-            afterImage.DOFade(1f, waitTime);
-            yield return new WaitForSeconds(afterImageFadeTime);
-            afterImage.DOFade(0f, waitTime);
+            afterImage.DOFade(0f, 1f);
+            yield return new WaitForSeconds(1f);
         }
 
-        // ひ
+        // つ（wait：5秒）
         if (num == 3)
         {
-            var beforeImage = objs[2].transform.Find("before").GetComponent<Image>();
-            var afterImage = objs[2].transform.Find("after").GetComponent<Image>();
+            var craneObj = objs[num].transform.Find("Crane").gameObject;
+            craneObj.transform.DOLocalMove(new Vector3(-125, 158, -270), 1.66f);
 
-            waitTime = 1.0f;
-            beforeImage.DOFade(1f, waitTime);
-            yield return new WaitForSeconds(waitTime);
-            beforeImage.transform.DOScale(new Vector3(0, 0, 0), waitTime);
-            yield return new WaitForSeconds(waitTime);
-            afterImage.transform.DOScale(new Vector3(1, 1, 1), waitTime);
-            afterImage.DOFade(1f, waitTime);
-            yield return new WaitForSeconds(afterImageFadeTime);
-            afterImage.DOFade(0f, waitTime);
+            beforeImage.DOFade(1f, 1f);
+            yield return new WaitForSeconds(2f);
+            beforeImage.DOFade(0f, 2f);
+            afterImage.DOFade(1f, 2f);
+            yield return new WaitForSeconds(2f);
+
+            craneObj.SetActive(false);
+
+            afterImage.DOFade(0f, 1f);
+            yield return new WaitForSeconds(1f);
         }
 
-        // ね
+        // ね（wait：5.3秒）
         if (num == 4)
         {
-            var beforeImage_1 = objs[3].transform.Find("before1").GetComponent<Image>();
-            var beforeImage_2 = objs[3].transform.Find("before2").GetComponent<Image>();
-            var afterImage = objs[3].transform.Find("after").GetComponent<Image>();
+            var beforeImage2 = objs[4].transform.Find("before2").GetComponent<Image>();
 
-            waitTime = 0.5f;
-            beforeImage_1.DOFade(1f, waitTime);
-            beforeImage_2.DOFade(1f, waitTime);
-            yield return new WaitForSeconds(waitTime);
-
-            waitTime = 1.5f;
-            beforeImage_1.transform.DOLocalMoveX(650, waitTime);
-            beforeImage_2.transform.DOLocalMoveX(650, waitTime);
-            beforeImage_1.transform.DOScale(Vector3.zero, waitTime);
-            beforeImage_2.transform.DOScale(Vector3.zero, waitTime);
-            yield return new WaitForSeconds(waitTime);
-
-            objs[3].transform.Find("Spheres Explode").gameObject.SetActive(true);
+            beforeImage.DOFade(1f, 0.5f);
+            beforeImage2.DOFade(1f, 0.5f);
             yield return new WaitForSeconds(0.5f);
 
-            waitTime = 1.0f;
-            afterImage.transform.DOScale(new Vector3(1, 1, 1), waitTime);
-            afterImage.DOFade(1f, waitTime);
-            yield return new WaitForSeconds(afterImageFadeTime);
-            afterImage.DOFade(0f, waitTime);
+            beforeImage.transform.DOLocalMoveX(650, 1.5f);
+            beforeImage2.transform.DOLocalMoveX(650, 1.5f);
+            beforeImage.transform.DOScale(Vector3.zero, 1.5f);
+            beforeImage2.transform.DOScale(Vector3.zero, 1.5f);
+            yield return new WaitForSeconds(1.5f);
+
+            objs[4].transform.Find("Spheres Explode").gameObject.SetActive(true);
+            yield return new WaitForSeconds(0.3f);
+
+            afterImage.transform.DOScale(new Vector3(1, 1, 1), 1f);
+            afterImage.DOFade(1f, 1f);
+            yield return new WaitForSeconds(2f);
+
+            afterImage.DOFade(0f, 1f);
+            yield return new WaitForSeconds(1f);
+
         }
 
+        // ひ（wait：5秒）
+        if (num == 5)
+        {
+            beforeImage.DOFade(1f, 1f);
+            yield return new WaitForSeconds(1f);
+            beforeImage.transform.DOScale(new Vector3(0, 0, 0), 1f);
+            yield return new WaitForSeconds(1f);
+
+            afterImage.transform.DOScale(new Vector3(1, 1, 1), 1f);
+            afterImage.DOFade(1f, 1f);
+            yield return new WaitForSeconds(2f);
+
+            afterImage.DOFade(0f, 1f);
+            yield return new WaitForSeconds(1f);
+        }
+
+        objs[num].SetActive(false);
     }
 }
+

@@ -49,7 +49,7 @@ public class GameSystem : MonoBehaviour
 
     [SerializeField] private CPU cpu = default;
 
-    [SerializeField] private Effects effects = default;
+    [SerializeField] private ShortVersionEffects effects = default;
 
     private int waitTime = 0;
 
@@ -162,14 +162,14 @@ public class GameSystem : MonoBehaviour
     private void EffectCheck()
     {
         waitTime = 6000;
-        StartCoroutine(effects.ShowEffect(Getkaruta_hudaID()));
+        // StartCoroutine(effects.ShowEffect(Getkaruta_hudaID()));
 
         // 「つ」を取った時
         if (Getkaruta_hudaID() == 17)
         {
             Debug.Log("「つ」をゲット！");
             waitTime = 6000;
-            StartCoroutine(effects.ShowEffect(Getkaruta_hudaID()));
+            // StartCoroutine(effects.ShowEffect(Getkaruta_hudaID()));
         }
     }
 
