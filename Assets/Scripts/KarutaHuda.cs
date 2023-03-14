@@ -4,22 +4,29 @@ using UnityEngine;
 
 public class KarutaHuda : MonoBehaviour
 {
-
-    [SerializeField] Material _material = null;
-    Material _myMaterial = null;
-    [SerializeField] MeshRenderer _cubeA = null;
-    // Start is called before the first frame update
-
+    [SerializeField] private Material _material = null;
+    [SerializeField] private Material _myMaterial = null;
+    [SerializeField] private MeshRenderer _cubeA = null;
     [SerializeField] private int _hudaID = 0;
+    [SerializeField] private bool _jin;
+    private string _soundCheck = null;
 
+    public int hudaID 
+    { 
+        get { return _hudaID; } 
+    }
+
+<<<<<<< HEAD
     [SerializeField] bool jin;
     private string soundCheck = null;
     //public int hudaID{get;set;} 
     public int HudaID => _hudaID;
+=======
+>>>>>>> develop
     public bool Jin
 
     {
-        get { return jin; }
+        get { return _jin; }
     }
     
     void Start()
@@ -27,7 +34,6 @@ public class KarutaHuda : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -35,14 +41,11 @@ public class KarutaHuda : MonoBehaviour
 
     public void SetHudaID(int hudaID)
     {
-       
+        
         _hudaID = hudaID;
         SetTexture(KarutaSystem.instance.GetTexture(_hudaID));
         SetSound(KarutaSystem.instance.GetSound(_hudaID)); 
-       
     }
-
-
 
     void SetTexture(Texture texture)
     {
@@ -56,25 +59,28 @@ public class KarutaHuda : MonoBehaviour
     }
     void SetSound(string soundPath)
     {
-        soundCheck = soundPath;
-
-        
-
-        
+        _soundCheck = soundPath;
+ 
     }
+
     public AudioClip Getsound()
     {
-        return Resources.Load<AudioClip>(soundCheck);
+        return Resources.Load<AudioClip>(_soundCheck);
     }
+<<<<<<< HEAD
     public void Setjin(int maisuu,int hudaAmountjin)
+=======
+
+    public void Setjin(int maisuu)
+>>>>>>> develop
     {
         if (maisuu >= hudaAmountjin/2)
         {
-            jin = true;
+            _jin = true;
         }
         else
         {
-            jin = false;
+            _jin = false;
         }
     }
 }

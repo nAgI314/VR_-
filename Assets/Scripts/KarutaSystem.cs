@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 
 public class KarutaSystem : MonoBehaviour
+<<<<<<< HEAD
 {
    
         
@@ -19,13 +20,24 @@ public class KarutaSystem : MonoBehaviour
     Texture Correct =null;
    
 
+=======
+{ 
+    List<Texture> _textureList = new List<Texture>();
+    List<KarutaHuda> _KarutaList = new List<KarutaHuda>();
+    List<int> _numberList = new List<int>();
+    List<string> _voiceList = new List<string>();
+    //�����l�����o���p
+    
+>>>>>>> develop
     KarutaHuda _KarutaHudaPrehub = null;
 
     public static KarutaSystem instance = null;
-    public KarutaSystem(KarutaHuda karutaHuda) {
+
+    public KarutaSystem(KarutaHuda karutaHuda) 
+    {
         _KarutaHudaPrehub = karutaHuda;
     }
-    // Start is called before the first frame update
+
     public void Initialize()
     {
         if (BotuPhotonScript.botuPhotonScript.isConnected)
@@ -34,8 +46,14 @@ public class KarutaSystem : MonoBehaviour
             int seed = (BotuPhotonScript.botuPhotonScript.GetRoom().CustomProperties["seed"] is int value) ? value : 0;
             Random.InitState(seed);
         }
+
         instance = this;
+<<<<<<< HEAD
         if (SceneManager.GetActiveScene().name == "ShortVersionScene")//�V���[�g�o�[�W�����̎�
+=======
+
+        for (int i = 0; i < 44; i++)
+>>>>>>> develop
         {
             //ショートバージョンではhudaIdを０～５の６つにし、０を「つ」の札に固定する
             for (int i = 0; i < 6; i++)
@@ -196,6 +214,7 @@ public class KarutaSystem : MonoBehaviour
 
             }
 
+<<<<<<< HEAD
             for (int i = _textureList.Count - 1; i > 0; i--)
             {
                 var j = Random.Range(0, i + 1);
@@ -203,6 +222,17 @@ public class KarutaSystem : MonoBehaviour
                 _textureList[i] = _textureList[j];
                 _textureList[j] = temp;
             }
+=======
+        }
+
+        for (int i = _textureList.Count - 1; i > 0; i--)
+        {
+            var j = Random.Range(0, i + 1);
+            var temp = _textureList[i];
+            _textureList[i] = _textureList[j];
+            _textureList[j] = temp;
+        }
+>>>>>>> develop
 
             for (int i = _numberList.Count - 1; i > 0; i--)
             {
@@ -219,11 +249,19 @@ public class KarutaSystem : MonoBehaviour
                 Debug.Log(_KarutaList[_numberList[maisuu]]);
             }
         }
+    }
 
+<<<<<<< HEAD
+=======
+    public Texture GetTexture(int hudaID)
+    {
+        return _textureList[hudaID];
+>>>>>>> develop
 
     }
     
 
+<<<<<<< HEAD
         // Update is called once per frame
     void Update()
     {
@@ -235,6 +273,8 @@ public class KarutaSystem : MonoBehaviour
         return _textureList[hudaID];
     }
     
+=======
+>>>>>>> develop
     public string GetSound(int hudaID)
     {
         return _voiceList[hudaID];
@@ -250,6 +290,7 @@ public class KarutaSystem : MonoBehaviour
         return _numberList;
         
     }
+<<<<<<< HEAD
     
     public void LastCardChange(GameObject karuta43,GameObject karuta44)  //最後に札を横に並べる処理
     {
@@ -259,6 +300,8 @@ public class KarutaSystem : MonoBehaviour
             karuta44.transform.localRotation = Quaternion.Euler(0, 180, 0);
     } 
     
+=======
+>>>>>>> develop
 }
 
         
