@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class TitleCPUScript : MonoBehaviour
 {
-
     [SerializeField] TMPro.TextMeshPro text;
 
     private AudioSource audio;

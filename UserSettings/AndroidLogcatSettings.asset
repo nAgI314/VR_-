@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "1WMHHB65512172",
         "name": "com.DefaultCompany.VR",
-        "processId": 403,
+        "processId": 26573,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -11,55 +11,37 @@
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.oculus.shellenv",
-            "processId": 7551,
+            "processId": 15679,
             "exited": false
         },
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.DefaultCompany.VR",
-            "processId": 29513,
+            "processId": 21242,
             "exited": true
         },
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.DefaultCompany.VR",
-            "processId": 29777,
+            "processId": 21952,
             "exited": true
         },
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.DefaultCompany.VR",
-            "processId": 30465,
+            "processId": 22487,
             "exited": true
         },
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.DefaultCompany.VR",
-            "processId": 32305,
+            "processId": 23436,
             "exited": true
         },
         {
             "deviceId": "1WMHHB65512172",
-            "name": "com.oculus.os.vrusb",
-            "processId": 2890,
-            "exited": false
-        },
-        {
-            "deviceId": "1WMHHB65512172",
             "name": "com.DefaultCompany.VR",
-            "processId": 31375,
-            "exited": false
-        },
-        {
-            "deviceId": "1WMHHB65512172",
-            "name": "com.DefaultCompany.VR",
-            "processId": 31797,
-            "exited": false
-        },
-        {
-            "deviceId": "1WMHHB65512172",
-            "name": "com.DefaultCompany.VR",
-            "processId": 403,
+            "processId": 26573,
             "exited": false
         }
     ],
@@ -114,7 +96,7 @@
         "Behavior": 0
     },
     "m_FilterOptions": {
-        "m_Filter": "aa",
+        "m_Filter": "aaa",
         "m_UseRegularExpressions": false,
         "m_MatchCase": false
     },

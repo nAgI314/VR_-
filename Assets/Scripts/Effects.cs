@@ -46,6 +46,6 @@ public class Effects : MonoBehaviour
     private void FadeOut()
     {
         var image = obj17.gameObject.transform.Find("ŽD").GetComponent<Image>();
-        image.DOFade(0f, 0.5f).OnComplete(() => obj17.SetActive(false)); ;
+        image.DOFade(0f, 0.5f).OnComplete(() => obj17.SetActive(false));
     }
 }

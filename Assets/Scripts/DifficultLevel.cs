@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DifficultLevel : MonoBehaviour
 {
-
     public static int howDifficultLevel=2000;
    
     [SerializeField] private GameObject easy;
@@ -30,6 +29,7 @@ public class DifficultLevel : MonoBehaviour
     public void DecideEasyLevel()
     {
         howDifficultLevel=easyWaitSecond;
+        Debug.Log("aaaa EASY!");
     }
     public void DecideNormalLevel()
     {

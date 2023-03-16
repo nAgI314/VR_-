@@ -16,13 +16,10 @@ public class KarutaHuda : MonoBehaviour
         get { return _hudaID; } 
     }
 
-<<<<<<< HEAD
     [SerializeField] bool jin;
     private string soundCheck = null;
     //public int hudaID{get;set;} 
     public int HudaID => _hudaID;
-=======
->>>>>>> develop
     public bool Jin
 
     {
@@ -67,12 +64,7 @@ public class KarutaHuda : MonoBehaviour
     {
         return Resources.Load<AudioClip>(_soundCheck);
     }
-<<<<<<< HEAD
     public void Setjin(int maisuu,int hudaAmountjin)
-=======
-
-    public void Setjin(int maisuu)
->>>>>>> develop
     {
         if (maisuu >= hudaAmountjin/2)
         {
