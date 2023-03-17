@@ -189,42 +189,42 @@ public class GameSystem : MonoBehaviour
             if (Getkaruta_hudaID() == 0)
             {
                 waitTime = 6000;
-                effects.ShowEffect(Getkaruta_hudaID());
+                StartCoroutine(effects.ShowEffect(Getkaruta_hudaID()));
             }
 
             // 「え」を取った時
             if (Getkaruta_hudaID() == 1)
             {
                 waitTime = 7000;
-                effects.ShowEffect(Getkaruta_hudaID());
+                StartCoroutine(effects.ShowEffect(Getkaruta_hudaID()));
             }
 
             // 「す」を取った時
             if (Getkaruta_hudaID() == 2)
             {
                 waitTime = 6000;
-                effects.ShowEffect(Getkaruta_hudaID());
+                StartCoroutine(effects.ShowEffect(Getkaruta_hudaID()));
             }
 
             // 「た」を取った時
             if (Getkaruta_hudaID() == 3)
             {
                 waitTime = 6000;
-                effects.ShowEffect(Getkaruta_hudaID());
+                StartCoroutine(effects.ShowEffect(Getkaruta_hudaID()));
             }
 
             // 「ね」を取った時
             if (Getkaruta_hudaID() == 4)
             {
                 waitTime = 6500;
-                effects.ShowEffect(Getkaruta_hudaID());
+                StartCoroutine(effects.ShowEffect(Getkaruta_hudaID()));
             }
 
             // 「ひ」を取った時
             if (Getkaruta_hudaID() == 5)
             {
                 waitTime = 6000;
-                effects.ShowEffect(Getkaruta_hudaID());
+                StartCoroutine(effects.ShowEffect(Getkaruta_hudaID()));
             }
         }
     }
