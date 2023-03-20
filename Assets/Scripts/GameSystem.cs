@@ -61,12 +61,18 @@ public class GameSystem : MonoBehaviour
 
     [SerializeField] private int startWaitTime = 0;
     private int waitTime = 0;
+    private bool isShortVersion = false;
 
     private void Awake()
     {
         if (instanceGameS == null)
         {
             instanceGameS = this;
+        }
+
+        if (SceneManager.GetActiveScene().name == "ShortVersionScene")
+        {
+            isShortVersion = true;
         }
     }
 
@@ -93,7 +99,7 @@ public class GameSystem : MonoBehaviour
         List<KarutaHuda> karutaEhuda = cardController.GetKarutaList();
         List<int> shuffleNumber = cardController.GetnumberList();
 
-        if (SceneManager.GetActiveScene().name == "ShortVersionScene")//・ｽV・ｽ・ｽ・ｽ[・ｽg・ｽo・ｽ[・ｽW・ｽ・ｽ・ｽ・ｽ・ｽﾌ趣ｿｽ
+        if (isShortVersion)
         {
             hudaAmount = 6;
         } 
@@ -136,8 +142,6 @@ public class GameSystem : MonoBehaviour
 
     public void GetPoint(Collider huda, bool player)
     {
-        waitTime = 3000;
-
         if (player == true)
         {
             if (IsCorrectCard(huda) == true)
@@ -183,56 +187,17 @@ public class GameSystem : MonoBehaviour
     // エフェクトを出すかどうかのチェック
     private void EffectCheck()
     {
-        if (SceneManager.GetActiveScene().name == "ShortVersionScene")
+        if (isShortVersion)
         {
-            // 「つ」を取った時
-            if (Getkaruta_hudaID() == 0)
-            {
-                waitTime = 6000;
-                StartCoroutine(effects.ShowEffect(Getkaruta_hudaID()));
-            }
-
-            // 「え」を取った時
-            if (Getkaruta_hudaID() == 1)
-            {
-                waitTime = 7000;
-                StartCoroutine(effects.ShowEffect(Getkaruta_hudaID()));
-            }
-
-            // 「す」を取った時
-            if (Getkaruta_hudaID() == 2)
-            {
-                waitTime = 6000;
-                StartCoroutine(effects.ShowEffect(Getkaruta_hudaID()));
-            }
-
-            // 「た」を取った時
-            if (Getkaruta_hudaID() == 3)
-            {
-                waitTime = 6000;
-                StartCoroutine(effects.ShowEffect(Getkaruta_hudaID()));
-            }
-
-            // 「ね」を取った時
-            if (Getkaruta_hudaID() == 4)
-            {
-                waitTime = 6500;
-                StartCoroutine(effects.ShowEffect(Getkaruta_hudaID()));
-            }
-
-            // 「ひ」を取った時
-            if (Getkaruta_hudaID() == 5)
-            {
-                waitTime = 6000;
-                StartCoroutine(effects.ShowEffect(Getkaruta_hudaID()));
-            }
+            waitTime = 6000;
+            effects.ShowEffect(Getkaruta_hudaID());
         }
     }
 
     // 「つ」を2点分に置き換える処理
     private float PutPoint(int Id)
     {
-        if(SceneManager.GetActiveScene().name == "ShortVersionScene")
+        if(isShortVersion)
         {
                 return 1;
         }
@@ -331,7 +296,6 @@ public class GameSystem : MonoBehaviour
     {
         if (isMyself == true)
         {
-            //・ｽ・ｽ・ｽ・ｽt・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾅゑｿｽ・ｽﾄなゑｿｽ
             MissEvent.Invoke();
             SoundEffectSystem.instance1.MakeSoundNoTouch();
         }
@@ -345,7 +309,7 @@ public class GameSystem : MonoBehaviour
 
     private async void Wait()
     {      
-        if(_count==42)  //譛蠕後↓譛ｭ繧呈ｨｪ縺ｫ荳ｦ縺ｹ繧句・逅・
+        if(_count==42)
         {
            cardController.LastCardChange(cardController.GetKarutaList()[cardController.GetnumberList()[_count]].gameObject,cardController.GetKarutaList()[cardController.GetnumberList()[_count+1]].gameObject);
           
