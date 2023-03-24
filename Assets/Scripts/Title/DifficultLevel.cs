@@ -21,6 +21,10 @@ public class DifficultLevel : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this);
+        //↓難易度のリセット（normalに）
+        howDifficultLevel=normalWaitSecond;
+        DifLevTextController.difLevTextController.TextMove(0.305f);
+        
         //easy=Transform.Find("LevelEasy");
         //normal=Transform.Find("LevelNormal");
         //hard=Transform.Find("LevelHard");
@@ -29,15 +33,18 @@ public class DifficultLevel : MonoBehaviour
     public void DecideEasyLevel()
     {
         howDifficultLevel=easyWaitSecond;
+        DifLevTextController.difLevTextController.TextMove(0.425f);
         Debug.Log("aaaa EASY!");
     }
     public void DecideNormalLevel()
     {
         howDifficultLevel=normalWaitSecond;
+        DifLevTextController.difLevTextController.TextMove(0.305f);
     }
     public void DecideHardLevel()
     {
         howDifficultLevel=hardWaitSecond;
+        DifLevTextController.difLevTextController.TextMove(0.2f);
     }
     // Start is called before the first frame update
     

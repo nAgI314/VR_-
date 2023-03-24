@@ -1,89 +1,107 @@
 {
-    "m_SelectedDeviceId": "1WMHHB65512172",
+    "m_SelectedDeviceId": "1WMHHB6D7S2214",
     "m_SelectedPackage": {
-        "deviceId": "1WMHHB65512172",
-        "name": "com.DefaultCompany.VR",
-        "processId": 16740,
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "1WMHHB65512172",
-            "name": "com.DefaultCompany.VR",
-            "processId": 5185,
-            "exited": true
-        },
-        {
-            "deviceId": "1WMHHB65512172",
-            "name": "com.DefaultCompany.VR",
-            "processId": 5929,
-            "exited": true
-        },
-        {
-            "deviceId": "1WMHHB65512172",
-            "name": "com.DefaultCompany.VR",
-            "processId": 6691,
-            "exited": true
-        },
-        {
-            "deviceId": "1WMHHB65512172",
-            "name": "com.DefaultCompany.VR",
-            "processId": 8057,
-            "exited": true
-        },
-        {
-            "deviceId": "1WMHHB65512172",
             "name": "com.oculus.shellenv",
-            "processId": 3117,
+            "processId": 15679,
             "exited": false
         },
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.DefaultCompany.VR",
-            "processId": 9262,
-            "exited": false
+            "processId": 21242,
+            "exited": true
         },
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.DefaultCompany.VR",
-            "processId": 9826,
-            "exited": false
+            "processId": 21952,
+            "exited": true
         },
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.DefaultCompany.VR",
-            "processId": 10506,
-            "exited": false
+            "processId": 22487,
+            "exited": true
         },
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.DefaultCompany.VR",
-            "processId": 12753,
-            "exited": false
+            "processId": 23436,
+            "exited": true
         },
         {
             "deviceId": "1WMHHB65512172",
             "name": "com.DefaultCompany.VR",
-            "processId": 13390,
+            "processId": 26573,
             "exited": false
         },
         {
-            "deviceId": "1WMHHB65512172",
+            "deviceId": "1WMHHB6D7S2214",
+            "name": "com.oculus.shellenv",
+            "processId": 3569,
+            "exited": true
+        },
+        {
+            "deviceId": "1WMHHB6D7S2214",
             "name": "com.DefaultCompany.VR",
-            "processId": 15672,
+            "processId": 12141,
+            "exited": true
+        },
+        {
+            "deviceId": "1WMHHB6D7S2214",
+            "name": "com.DefaultCompany.VR",
+            "processId": 13404,
+            "exited": true
+        },
+        {
+            "deviceId": "1WMHHB6D7S2214",
+            "name": "com.DefaultCompany.VR",
+            "processId": 14336,
+            "exited": true
+        },
+        {
+            "deviceId": "1WMHHB6D7S2214",
+            "name": "com.oculus.shellenv",
+            "processId": 1869,
             "exited": false
         },
         {
-            "deviceId": "1WMHHB65512172",
+            "deviceId": "1WMHHA638G2392",
             "name": "com.DefaultCompany.VR",
-            "processId": 16153,
+            "processId": 5041,
+            "exited": true
+        },
+        {
+            "deviceId": "1WMHHA638G2392",
+            "name": "com.DefaultCompany.VR",
+            "processId": 4301,
+            "exited": true
+        },
+        {
+            "deviceId": "1WMHHA638G2392",
+            "name": "com.oculus.shellenv",
+            "processId": 6382,
             "exited": false
         },
         {
-            "deviceId": "1WMHHB65512172",
+            "deviceId": "1WMHHA64GK2016",
             "name": "com.DefaultCompany.VR",
-            "processId": 16740,
+            "processId": 14581,
+            "exited": false
+        },
+        {
+            "deviceId": "1WMHHA66US2021",
+            "name": "com.DefaultCompany.VR",
+            "processId": 4766,
             "exited": false
         }
     ],

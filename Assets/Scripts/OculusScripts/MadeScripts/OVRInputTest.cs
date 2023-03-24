@@ -44,7 +44,7 @@ public class OVRInputTest : MonoBehaviour
 
             // �l��0�łȂ���΁A�R���g���[���[��Trigger��������Ă���
         
-            if (value > wetherTriggerDown)
+            if (value >= wetherTriggerDown)
             {
                 isTriggerDown = true;
             

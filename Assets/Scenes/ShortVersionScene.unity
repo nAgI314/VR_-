@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.012054487, g: 0.029742457, b: 0.043338098, a: 1}
+  m_IndirectSpecularColor: {r: 0.012117221, g: 0.029817265, b: 0.043414053, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1373,7 +1373,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  wetherTriggerDown: 0.5
+  wetherTriggerDown: 0
   KarutaSystem: {fileID: 921669675}
   GameSystem: {fileID: 921669673}
   hudaCollider: {fileID: 0}
@@ -2125,7 +2125,7 @@ MonoBehaviour:
   karutaCount: 0
   cpu: {fileID: 921669676}
   effects: {fileID: 2007052372}
-  startWaitTime: 2000
+  startWaitTime: 4000
 --- !u!114 &921669675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2200,7 +2200,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  wetherTriggerDown: 0.5
+  wetherTriggerDown: 0
   KarutaSystem: {fileID: 921669675}
   GameSystem: {fileID: 921669673}
   hudaCollider: {fileID: 0}
@@ -4352,7 +4352,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &2007052382
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4369,7 +4369,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1001 &2121590718
 PrefabInstance:
   m_ObjectHideFlags: 0

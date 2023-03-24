@@ -15,38 +15,38 @@ using TMPro;
 
 public class GameSystem : MonoBehaviour
 {
-    // Še©‚Ìæ“¾–‡”‚Ì•\¦—p
+    // ï¿½eï¿½ï¿½ï¿½Ìæ“¾ï¿½ï¿½ï¿½ï¿½ï¿½Ì•\ï¿½ï¿½ï¿½p
     [SerializeField] TextMeshPro text;
     [Serializable] private class AnswerEvent : UnityEvent<CancellationToken> { }
 
-    // ƒJƒ‹ƒ^‚ÌƒeƒNƒXƒ`ƒƒ‚ğ“\‚é‘O‚ÌDƒIƒuƒWƒFƒNƒg
+    // ï¿½Jï¿½ï¿½ï¿½^ï¿½Ìƒeï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½Oï¿½ÌDï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½g
     [SerializeField] KarutaHuda _KarutaHudaPrehub = null;
     [SerializeField] AudioSource audioSource = null;
 
-    // ŠÔˆá‚¦‚½D‚ğæ“¾‚µ‚½Û‚ÌƒCƒxƒ“ƒg
+    // ï¿½Ôˆá‚¦ï¿½ï¿½ï¿½Dï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½ï¿½Û‚ÌƒCï¿½xï¿½ï¿½ï¿½g
     [SerializeField] private UnityEvent MissEvent = new UnityEvent();
-    // ³‰ğ‚ÌD‚ğæ“¾‚µ‚½Û‚ÌƒCƒxƒ“ƒg
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ÌDï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½ï¿½Û‚ÌƒCï¿½xï¿½ï¿½ï¿½g
 
     [SerializeField] private AnswerEvent setAnswerEvent = new AnswerEvent();
     CancellationTokenSource cancellationTokenSource;
 
-    // ƒJƒ‹ƒ^‚ÌD‚ğŠÇ—‚µ‚Ä‚¢‚é‚à‚Ì
+    // ï¿½Jï¿½ï¿½ï¿½^ï¿½ÌDï¿½ï¿½ï¿½Ç—ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     KarutaSystem cardController;
 
-    // “Ç‚İã‚°‚½—İŒv–‡”
+    // ï¿½Ç‚İã‚°ï¿½ï¿½ï¿½İŒvï¿½ï¿½ï¿½ï¿½
     public int _count = 0;
 
-    // “¾“_”
+    // ï¿½ï¿½ï¿½_ï¿½ï¿½
     public float Player1Point = 0;
     public float Player2Point = 0;
 
-    // æ“¾–‡”
+    // ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½
     public int hudaCount1 = 0;
     public int hudaCount2 = 0;
 
     public bool turu_flag = false;
 
-    // æ“¾‚µ‚½D‚ÌƒŠƒXƒg
+    // ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½ï¿½Dï¿½Ìƒï¿½ï¿½Xï¿½g
     Stack<KarutaHuda> _Player1List = new Stack<KarutaHuda>();
     Stack<KarutaHuda> _Player2List = new Stack<KarutaHuda>();
     GameObject karuta = null;
@@ -59,8 +59,8 @@ public class GameSystem : MonoBehaviour
     [SerializeField] private CPU cpu = default;
     [SerializeField] private ShortVersionEffects effects = default;
 
-    [SerializeField] private int startWaitTime = 0;
-    private int waitTime = 0;
+    [SerializeField] private int startWaitTime = 3000;
+    private int waitTime = 2000;
     private bool isShortVersion = false;
 
     private void Awake()
@@ -80,7 +80,7 @@ public class GameSystem : MonoBehaviour
     {
         cardController = new KarutaSystem(_KarutaHudaPrehub);
 
-        // ƒJ[ƒh‚ğƒVƒƒƒbƒtƒ‹‚µ‚Ä•À‚×‚é
+        // ï¿½Jï¿½[ï¿½hï¿½ï¿½ï¿½Vï¿½ï¿½ï¿½bï¿½tï¿½ï¿½ï¿½ï¿½ï¿½Ä•ï¿½ï¿½×‚ï¿½
         cardController.Initialize();
 
         await Task.Delay(startWaitTime);
@@ -122,16 +122,16 @@ public class GameSystem : MonoBehaviour
             karutaEhuda[i].gameObject.GetComponent<BoxCollider>().enabled = karutaEhuda[i].Jin != jin;
         }
 
-        // Ÿ‚É“Ç‚Ü‚ê‚éDƒIƒuƒWƒF
+        // ï¿½ï¿½ï¿½É“Ç‚Ü‚ï¿½ï¿½Dï¿½Iï¿½uï¿½Wï¿½F
         karuta = karutaEhuda[shuffleNumber[_count]].gameObject;
-        // Ÿ‚É“Ç‚Ü‚ê‚éD‚ÌID
+        // ï¿½ï¿½ï¿½É“Ç‚Ü‚ï¿½ï¿½Dï¿½ï¿½ID
         karuta_hudaID = karutaEhuda[shuffleNumber[_count]];
 
         audioSource.PlayOneShot( karuta.GetComponent<KarutaHuda>().Getsound());
 
         audioSource.PlayOneShot(karuta.GetComponent<KarutaHuda>().Getsound());
 
-        // Ÿ‚É“Ç‚Ü‚ê‚éD‚ÌƒRƒ‰ƒCƒ_[
+        // ï¿½ï¿½ï¿½É“Ç‚Ü‚ï¿½ï¿½Dï¿½ÌƒRï¿½ï¿½ï¿½Cï¿½_ï¿½[
         BoxCollider boxCollider = karuta.GetComponent<BoxCollider>();
         boxCollider.enabled = true;
 
@@ -152,7 +152,7 @@ public class GameSystem : MonoBehaviour
                 //Player1Point = Player1Point + PutPoint(huda.gameObject.GetComponent<KarutaHuda>().hudaID);
                 hudaCount1++;
                 _Player1List.Push(huda.gameObject.GetComponent<KarutaHuda>());
-                text.text = _Player1List.Count + "–‡";
+                text.text = _Player1List.Count + "æš";
                 cpu.PlayAnime("LosePose");
                 EffectCheck();
             }
@@ -163,7 +163,7 @@ public class GameSystem : MonoBehaviour
                 if (_Player1List.Count > 0)
                 {
                     _Player2List.Push(_Player1List.Pop());
-                    text.text = _Player1List.Count + "–‡";
+                    text.text = _Player1List.Count + "æš";
                 }
                 return;
             }
@@ -171,6 +171,7 @@ public class GameSystem : MonoBehaviour
         else
         {
             cpu.PlayAnime("WinPose");
+            waitTime=2000;
 
             cancellationTokenSource.Cancel();
             cancellationTokenSource.Dispose();
@@ -184,7 +185,7 @@ public class GameSystem : MonoBehaviour
         Wait();
     }
 
-    // ƒGƒtƒFƒNƒg‚ğo‚·‚©‚Ç‚¤‚©‚Ìƒ`ƒFƒbƒN
+    // ï¿½Gï¿½tï¿½Fï¿½Nï¿½gï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½ï¿½Ç‚ï¿½ï¿½ï¿½ï¿½Ìƒ`ï¿½Fï¿½bï¿½N
     private void EffectCheck()
     {
         if (isShortVersion)
@@ -194,7 +195,7 @@ public class GameSystem : MonoBehaviour
         }
     }
 
-    // u‚Âv‚ğ2“_•ª‚É’u‚«Š·‚¦‚éˆ—
+    // ï¿½uï¿½Âvï¿½ï¿½2ï¿½_ï¿½ï¿½ï¿½É’uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½éˆï¿½ï¿½
     private float PutPoint(int Id)
     {
         if(isShortVersion)
@@ -219,9 +220,10 @@ public class GameSystem : MonoBehaviour
         return cardController.GetKarutaList()[cardController.GetnumberList()[_count - 1]].gameObject;
     }
 
-    // ÅI“I‚ÈŸ”s”»’è
+    // ï¿½ÅIï¿½Iï¿½Èï¿½ï¿½sï¿½ï¿½ï¿½ï¿½
     private void PlayerPoint()
     {
+        karutaCount=_Player1List.Count;
         float MyPoint = GivePoint();
         if(MyPoint == hudaAmount/2)
         {   
@@ -238,7 +240,7 @@ public class GameSystem : MonoBehaviour
             
             
             for(int i=0;i<_Player1List.Count;i++){
-                karutaCount=_Player1List.Count;
+                
                 var karuta_now = _Player1List.Pop();
 
                 if(karuta_now.HudaID==0){
@@ -262,7 +264,7 @@ public class GameSystem : MonoBehaviour
         }
     }
 
-    // u‚Âv‚ğ2“_•ª‚Æ‚µ‚½ÅI“¾“_iƒvƒŒƒCƒ„[‘¤j‚ğ•Ô‚·
+    // ï¿½uï¿½Âvï¿½ï¿½2ï¿½_ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½ï¿½ï¿½ÅIï¿½ï¿½ï¿½_ï¿½iï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½jï¿½ï¿½Ô‚ï¿½
     public float GivePoint()
     {
         //List<KarutaHuda> _Player1ListList = new List<KarutaHuda>();
@@ -278,13 +280,13 @@ public class GameSystem : MonoBehaviour
         return Player1Point;
     }
 
-    // ³‰ğA•s³‰ğ‚ÌŒ‹‰Ê‚ğ•Ô‚·
+    // ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ÌŒï¿½ï¿½Ê‚ï¿½Ô‚ï¿½
     public bool IsCorrectCard(Collider huda)
     {
         return huda.gameObject.GetComponent<KarutaHuda>().Jin == jin;
     }
 
-    public void DisableAllColliders()//‘S•”‚Ìcollider‚ğoff‚É‚·‚é
+    public void DisableAllColliders()//ï¿½Sï¿½ï¿½ï¿½ï¿½colliderï¿½ï¿½offï¿½É‚ï¿½ï¿½ï¿½
     {
         for (int i = 0; i < cardController.GetKarutaList().Count; i++)
         {
@@ -315,6 +317,7 @@ public class GameSystem : MonoBehaviour
           
         }
         await Task.Delay(waitTime);
+        //await Task.Delay(2000);
         SetAnswer();
     }
     
