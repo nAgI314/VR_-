@@ -38,7 +38,7 @@ public class KarutaSystem : MonoBehaviour
         }
 
         instance = this;
-        if (SceneManager.GetActiveScene().name == "ShortVersionScene")//�V���[�g�o�[�W�����̎�
+        if (SceneManager.GetActiveScene().name == "ShortVersionScene" /*|| SceneManager.GetActiveScene().name == "NewTwoPlayerScene"*/)//�V���[�g�o�[�W�����̎�
         {
             //ショートバージョンではhudaIdを０～５の６つにし、０を「つ」の札に固定する
             for (int i = 0; i < 6; i++)

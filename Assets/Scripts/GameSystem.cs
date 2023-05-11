@@ -70,7 +70,7 @@ public class GameSystem : MonoBehaviour
             instanceGameS = this;
         }
 
-        if (SceneManager.GetActiveScene().name == "ShortVersionScene")
+        if (SceneManager.GetActiveScene().name == "ShortVersionScene" /*|| SceneManager.GetActiveScene().name == "NewTwoPlayerScene"*/)
         {
             isShortVersion = true;
         }
