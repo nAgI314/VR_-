@@ -70,7 +70,7 @@ public class GameSystem : MonoBehaviour
             instanceGameS = this;
         }
 
-        if (SceneManager.GetActiveScene().name == "ShortVersionScene" /*|| SceneManager.GetActiveScene().name == "NewTwoPlayerScene"*/)
+        if (SceneManager.GetActiveScene().name == "ShortVersionScene" || SceneManager.GetActiveScene().name == "NewTwoPlayerScene")
         {
             isShortVersion = true;
         }
@@ -153,7 +153,7 @@ public class GameSystem : MonoBehaviour
                 hudaCount1++;
                 _Player1List.Push(huda.gameObject.GetComponent<KarutaHuda>());
                 text.text = _Player1List.Count + "枚";
-                cpu.PlayAnime("LosePose");
+                cpu?.PlayAnime("LosePose");
                 EffectCheck();
             }
             else
@@ -170,7 +170,7 @@ public class GameSystem : MonoBehaviour
         }
         else
         {
-            cpu.PlayAnime("WinPose");
+            cpu?.PlayAnime("WinPose");
             waitTime=2000;
 
             cancellationTokenSource.Cancel();
