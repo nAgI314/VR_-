@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -23,7 +24,11 @@ public class CPU : MonoBehaviour
     public async void OnSetAnswerAsync(CancellationToken token)
     {
         PlayAnime("SearchPose");
-        await Task.Delay(waitTime, token);
+        try
+        {
+            await Task.Delay(waitTime, token);
+        }
+        catch (Exception e) { }
         if (token.IsCancellationRequested == false)
         {
             SoundEffectSystem.instance1.MakeSoundNoTouch();

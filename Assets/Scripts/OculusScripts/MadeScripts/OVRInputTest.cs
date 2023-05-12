@@ -86,7 +86,11 @@ public class OVRInputTest : MonoBehaviour
             }
             //�������玩���őł�����i�_�����ꂽ��j
 
-            
+            if (other.gameObject.GetComponent<KarutaHuda>() == null)
+            {
+                return;
+            }
+
             touchEvent.Invoke(other,true);
             //�����܂Ŏ����őł������
             // �R���g���[���[�Ƃ��񂾃I�u�W�F�N�g��transform�𓯊�

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.012117221, g: 0.029817265, b: 0.043414053, a: 1}
+  m_IndirectSpecularColor: {r: 0.0120350905, g: 0.02963952, b: 0.043191127, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1985,6 +1985,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Robot Kyle
       objectReference: {fileID: 0}
+    - target: {fileID: 8087332150365856914, guid: 858908f3285a8544190c89b8cdbdada9, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 858908f3285a8544190c89b8cdbdada9, type: 3}
 --- !u!95 &902682047 stripped
@@ -2315,7 +2319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11477634, guid: ba1fa4a8c66106b4988c88fe4b8e8502, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4023906921389046, guid: ba1fa4a8c66106b4988c88fe4b8e8502, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4005,9 +4009,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1643293986398926372, guid: b2fdc5328f2a995468342afb72e0a3d5, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 1643293986404966093, guid: b2fdc5328f2a995468342afb72e0a3d5, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1643293986404966093, guid: b2fdc5328f2a995468342afb72e0a3d5, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1643293986456725645, guid: b2fdc5328f2a995468342afb72e0a3d5, type: 3}
       propertyPath: m_SizeDelta.x
@@ -4024,6 +4036,10 @@ PrefabInstance:
     - target: {fileID: 1643293986456725647, guid: b2fdc5328f2a995468342afb72e0a3d5, type: 3}
       propertyPath: m_Color.a
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1643293987728659558, guid: b2fdc5328f2a995468342afb72e0a3d5, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1643293987728659559, guid: b2fdc5328f2a995468342afb72e0a3d5, type: 3}
       propertyPath: effectsAnime
@@ -4064,6 +4080,10 @@ PrefabInstance:
     - target: {fileID: 2395644496339020724, guid: b2fdc5328f2a995468342afb72e0a3d5, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2395644496339020724, guid: b2fdc5328f2a995468342afb72e0a3d5, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2395644496554826992, guid: b2fdc5328f2a995468342afb72e0a3d5, type: 3}
       propertyPath: m_Color.a
@@ -4133,6 +4153,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2395644497418415462, guid: b2fdc5328f2a995468342afb72e0a3d5, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 2395644497443126163, guid: b2fdc5328f2a995468342afb72e0a3d5, type: 3}
       propertyPath: m_Name
       value: "Obj1_\u3064"
@@ -4141,9 +4165,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2395644497443126163, guid: b2fdc5328f2a995468342afb72e0a3d5, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 2395644497668889553, guid: b2fdc5328f2a995468342afb72e0a3d5, type: 3}
       propertyPath: m_Name
       value: "Obj4_\u305F"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2395644497668889553, guid: b2fdc5328f2a995468342afb72e0a3d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2395644497668889553, guid: b2fdc5328f2a995468342afb72e0a3d5, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2395644497731774840, guid: b2fdc5328f2a995468342afb72e0a3d5, type: 3}
       propertyPath: m_Name
@@ -4152,6 +4188,10 @@ PrefabInstance:
     - target: {fileID: 2395644497731774840, guid: b2fdc5328f2a995468342afb72e0a3d5, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2395644497731774840, guid: b2fdc5328f2a995468342afb72e0a3d5, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2395644497731774843, guid: b2fdc5328f2a995468342afb72e0a3d5, type: 3}
       propertyPath: m_Camera
@@ -4352,7 +4392,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &2007052382
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4369,7 +4409,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2121590718
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4435,7 +4475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11438496, guid: e6ba3498ffa1e534b91a07264266e6b8, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4052156782627076, guid: e6ba3498ffa1e534b91a07264266e6b8, type: 3}
       propertyPath: m_LocalRotation.w

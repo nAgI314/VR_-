@@ -171,7 +171,15 @@ public class GameSystem : MonoBehaviour
         else
         {
             cpu?.PlayAnime("WinPose");
-            waitTime=2000;
+
+            if (SceneManager.GetActiveScene().name == "NewTwoPlayerScene")
+            {
+                waitTime = 6000;
+            }
+            else
+            {
+                waitTime = 2000;
+            }
 
             cancellationTokenSource.Cancel();
             cancellationTokenSource.Dispose();
