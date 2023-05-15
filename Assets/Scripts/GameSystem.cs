@@ -87,7 +87,7 @@ public class GameSystem : MonoBehaviour
 
         SetAnswer();
 
-        if (PhotonNetwork.LocalPlayer.IsMasterClient == true)
+        if (SceneManager.GetActiveScene().name == "NewTwoPlayerScene" || PhotonNetwork.LocalPlayer.IsMasterClient == true)
         {
             PlayerScript.playerScript.PlayerPut();
         }

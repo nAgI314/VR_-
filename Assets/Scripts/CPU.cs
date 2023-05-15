@@ -26,7 +26,7 @@ public class CPU : MonoBehaviour
         PlayAnime("SearchPose");
         try
         {
-            await Task.Delay(waitTime, token);
+            await Task.Delay(waitTime, token);//止められた時に
         }
         catch (Exception e) { }
         if (token.IsCancellationRequested == false)
