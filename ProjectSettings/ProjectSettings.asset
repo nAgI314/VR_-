@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: "VR\u4E0A\u6BDB\u304B\u308B\u305F6\u679Aver"
+  productName: "VR\u4E0A\u6BDB\u304B\u308B\u305F44\u679Aver"
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -135,9 +135,7 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleVersion: 0.1
-  preloadedAssets:
-  - {fileID: -1586220942849875878, guid: fc7072cbe62d1d7448292a1ef9e800bc, type: 2}
-  - {fileID: 11400000, guid: c98ec87f79c0ca24ab59aa653c1e5685, type: 2}
+  preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
